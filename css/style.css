@@ -6,9 +6,28 @@
     =================================================
 */
 
+/* ----- CSS CUSTOM PROPERTIES / CSS VARIABLES ----- */
+:root
+{
+    /* COLOURS */
+    --primary-accent: #FFAA72;
+    --secondary-accent: #D28E61;
+    --tertiary-accent: #A57250;
+    --primary-bg: #1D1D1D;
+    --secondary-bg: #4A392E;
+    --primary-header: var(--primary-accent);
+    --secondary-header: var(--tertiary-accent);
+    --primary-text: #9D9D9D;
+    --secondary-text: #FFFFFF;
 
+    /* MARGINS */
 
-/* CSS RESET */
+    /* PADDING */
+
+    /* FONT & TYPOGRAPHY */
+}
+
+/* ----- CSS RESET ----- */
 *
 {
     margin: 0;
@@ -69,18 +88,17 @@ table
 	border-spacing: 0;
 }
 
-/* HEADER */
+/* ----- HEADER ----- */
 header
 {
     height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 1),rgba(0, 0, 0, 0) 85%), url(../img/hero_bg.png);
-    background-color: #212121;
+    background-image: url(../img/hero_bg.png);
+    background-color: var(--primary-bg);
     background-size: cover;
     background-position: top left;
     position: relative;
     overflow: hidden;
-    padding: 8px;
 }
 
 .nav_bar
@@ -88,19 +106,31 @@ header
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--primary-bg);
+    padding: 0px 16px;
 }
+
+#nav_logo::before
+{
+    display: block;
+    content: '';
+    width: 0%;
+    height: 2px;
+    margin-bottom: 8px;
+} 
 
 #nav_logo a
 {
     text-decoration: none;
     font-family: 'Lobster', cursive;
     font-size: 32px;
-    color: #fff;
+    color: var(--primary-text);
+    padding: 8px 16px;
 }
 
 #nav_logo a:hover
 {
-    color: ;
+    color: var(--primary-accent);
 }
 
 #nav-links
@@ -113,17 +143,30 @@ header
 {
     display: inline-block;
     list-style: none;
-    padding: 8px 16px;
     position: relative;
+    padding: 16px 0px;
+    margin: 0px 2px;
+}
+
+#nav_links > ul > li::before
+{
+    display: block;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-text);
+    margin-bottom: 8px;
 }
 
 #nav_links > ul > li > a
 {
     text-decoration: none;
-    color: #fff;
+    color: var(--primary-text);
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 16px;
+    letter-spacing: 3px;
+    padding: 16px 16px;
 }
 
 .nav_bar .fas
@@ -131,7 +174,7 @@ header
     display: none;
 }
 
-/* HEADER MEDIA QUERIES */
+/* ----- HEADER MEDIA QUERIES ----- */
 /* Bootstrap v5.0 Breakpoints. */
 @media(max-width: 992px)
 {
