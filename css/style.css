@@ -62,6 +62,7 @@ footer, header, hgroup, menu, nav, section
 
 body 
 {
+    height: auto;
 	line-height: 1;
 }
 
@@ -89,7 +90,8 @@ table
 }
 
 /* ----- HEADER ----- */
-header
+/* NAVIGATION BAR */
+#header
 {
     height: 100vh;
     width: 100%;
@@ -98,80 +100,111 @@ header
     background-size: cover;
     background-position: top left;
     position: relative;
-    overflow: hidden;
 }
 
 .nav_bar
 {
-    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-bg);
-    padding: 0px 16px;
 }
 
-#nav_logo::before
+.nav_links > ul
 {
-    display: block;
-    content: '';
-    width: 0%;
-    height: 2px;
-    margin-bottom: 8px;
-} 
-
-#nav_logo a
-{
-    text-decoration: none;
-    font-family: 'Lobster', cursive;
-    font-size: 32px;
-    color: var(--primary-text);
-    padding: 8px 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
 }
 
-#nav_logo a:hover
-{
-    color: var(--primary-accent);
-}
-
-#nav-links
-{
-    flex: 1;
-    text-align: right;
-}
-
-#nav_links > ul > li
+.nav_links > ul > li
 {
     display: inline-block;
     list-style: none;
     position: relative;
-    padding: 16px 0px;
-    margin: 0px 2px;
+    text-align: center;
+    width: 100%; /* Note: Having width larger than space avalailable will ensure no matter how many or how few nav links exist they take up the full nav bar in space and span out equally. This is due to the borderbox property applied on everything in the 'CSS RESET'. */
 }
 
-#nav_links > ul > li::before
+.nav_links > ul > li > a
 {
     display: block;
-    content: '';
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary-text);
-    margin-bottom: 8px;
-}
-
-#nav_links > ul > li > a
-{
     text-decoration: none;
     color: var(--primary-text);
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 16px;
     letter-spacing: 3px;
-    padding: 16px 16px;
+    padding: 24px 24px;
+    width: 100%; /* Note: Having width larger than space avalailable will ensure no matter how many or how few nav links exist they take up the full nav bar in space and span out equally. This is due to the borderbox property applied on everything in the 'CSS RESET'. */
+    transition: 0.5s ease-out;
 }
 
-.nav_bar .fas
+.nav_links > ul > li > a:hover
+{
+    color: var(--primary-accent);
+}
+
+.nav_links > ul > li > a::after /* ::after pseudo element used to create bulb/circle under active link */
+{
+    content: ''; /* Note: All pseudo element MUST have a content declaration. In our case it is empty because we do not need to add any form of text. */
+    --bulb-size: 12px;
+    width: var(--bulb-size);
+    height: var(--bulb-size);
+    border-radius: calc(var(--bulb-size) / 2); /* Note: 'calc()' function can be utilised to make calculations and utilise the calculated values directly in your CSS.*/
+    background: var(--primary-accent);
+    display: inline-block;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    margin-left: calc(var(--bulb-size) / 2 * -1);
+    margin-top: calc(var(--bulb-size) / 2 * -1);
+    transform: scale(0);
+    transition: transform .5s cubic-bezier(0.610, 0.000, 0.405, 1.630); /* Note: 'cubic-bezier' is utilised to create a graph which can smooth out certain parts of an animation, such as the beginning and end. */
+}
+
+.nav_links > ul > li > a:hover::after
+{
+    transform: scale(1);
+}
+
+/* .nav_bar .fas
 {
     display: none;
+} */
+
+/* HERO BANNER */
+
+
+
+
+/* TEMPORARY */
+#about
+{
+    height: 100vh;
+    background-color: green;
+}
+
+#skills
+{
+    height: 100vh;
+    background-color: blue;
+}
+
+#projects
+{
+    height: 100vh;
+    background-color: purple;
+}
+
+#contact
+{
+    height: 100vh;
+    background-color: red;
 }
 
 /* ----- HEADER MEDIA QUERIES ----- */
