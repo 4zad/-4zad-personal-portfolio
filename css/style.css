@@ -149,6 +149,11 @@ table
     color: var(--primary-accent);
 }
 
+.nav_links > ul > li > a.active
+{
+    color: var(--primary-accent);
+}
+
 .nav_links > ul > li > a::after /* ::after pseudo element used to create bulb/circle under active link */
 {
     content: ''; /* Note: All pseudo element MUST have a content declaration. In our case it is empty because we do not need to add any form of text. */
@@ -167,7 +172,7 @@ table
     transition: transform .5s cubic-bezier(0.610, 0.000, 0.405, 1.630); /* Note: 'cubic-bezier' is utilised to create a graph which can smooth out certain parts of an animation, such as the beginning and end. */
 }
 
-.nav_links > ul > li > a:hover::after
+.nav_links > ul > li > a.active::after
 {
     transform: scale(1);
 }
