@@ -11,8 +11,8 @@
 {
     /* COLOURS */
     --primary-accent: #FFAA72;
-    --secondary-accent: #D28E61;
-    --tertiary-accent: #A57250;
+    --secondary-accent: #C7875D;
+    --tertiary-accent: #8E6448;
     --primary-bg: #1D1D1D;
     --secondary-bg: #4A392E;
     --primary-header: var(--primary-accent);
@@ -100,11 +100,12 @@ table
 {
     height: 100vh;
     width: 100%;
-    background-image: url(../img/hero_bg.png);
+    background-image: url(../img/hero-bg.png);
     background-color: var(--primary-bg);
     background-size: cover;
     background-position: top left;
     position: relative;
+    overflow: hidden;
 }
 
 .nav_bar
@@ -174,7 +175,7 @@ table
     margin-left: calc(var(--bulb-size) / 2 * -1);
     margin-top: calc(var(--bulb-size) / 2 * -1);
     transform: scale(0);
-    transition: transform .5s cubic-bezier(0.610, 0.000, 0.405, 1.630); /* Note: 'cubic-bezier' is utilised to create a graph which can smooth out certain parts of an animation, such as the beginning and end. */
+    transition: transform .5s cubic-bezier(0.600, 0.000, 0.400, 1.700); /* Note: 'cubic-bezier' is utilised to create a graph which can smooth out certain parts of an animation, such as the beginning and end. */
 }
 
 .nav_links > ul > li > a.active::after
@@ -190,9 +191,145 @@ table
 
 
 /* HERO BANNER */
+/* Reusable Classes */
+.primary_accent
+{
+    color: var(--primary-accent) !important;
+}
 
+.intro_keyword
+{
+    white-space: nowrap !important;
+    font-weight: 700 !important;
+    color: var(--secondary-text) !important;
+}
 
+/* .intro_keyword::before {
+    content: "DESIGNER";
+    position: absolute;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent 0,
+        transparent 2px,
+        var(--primary-accent) 2px,
+        var(--primary-accent) 4px
+    );
+    z-index: -1;
+    transition: 1s ease;
+} */
+.intro_keyword::before {
+    content: "DESIGNER";
+    position: absolute;
+    color: var(--tertiary-accent);
+    z-index: -1;
+    transition: 1s ease;
+}
 
+.intro_keyword.designer::before 
+{
+    content: "DESIGNER";
+}
+.intro_keyword.front_end::before 
+{
+    content: "FRONT END DEVELOPER";
+}
+.intro_keyword.user_experience::before 
+{
+    content: "USER EXPERIENCE";
+}
+
+/* .intro_keyword::after {
+    position: absolute;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: repeating-linear-gradient(
+        135deg,
+        transparent 0,
+        transparent 2px,
+        var(--primary-accent) 2px,
+        var(--primary-accent) 4px
+    );
+    z-index: 1;
+    transform: translateX(-100%);
+    transition: 1s ease;
+} */
+.intro_keyword::after {
+    position: absolute;
+    color: var(--primary-accent);
+    z-index: 1;
+    transform: translateX(-100%);
+    transition: 1s ease;
+}
+
+.intro_keyword.designer::after 
+{
+    content: "DESIGNER";
+}
+.intro_keyword.front_end::after 
+{
+    content: "FRONT END DEVELOPER";
+}
+.intro_keyword.user_experience::after 
+{
+    content: "USER EXPERIENCE";
+}
+
+.intro_keyword:hover::before 
+{
+    transform: translate(-8px,8px);
+}
+
+.intro_keyword:hover::after 
+{
+    transform: translate(calc(-100% + 8px),-8px);
+} 
+
+/* Non-Reusable Classes */
+.hero_textbox
+{
+    display: block;
+    position: absolute;
+    text-align: left;
+    width: max(300px,50%);
+    top: 70%;
+    transform: translateY(-50%);
+    margin: 0em 3em;
+}
+
+.intro_greeting
+{
+    margin-bottom: 1em;
+}
+
+.intro_greeting p, .intro_greeting span
+{
+    font-family: 'Major Mono Display', monospace;
+    font-size: clamp(1.75rem, 4vw, 7rem);
+    color: var(--secondary-text);
+}
+
+.intro_desc
+{
+    margin-bottom: 1em;
+}
+
+.intro_desc p, .intro_desc span
+{
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 2vw, 2.5rem);
+    color: var(--primary-text);
+    font-weight: 500;
+    line-height: 1.5em;
+}
+
+.intro_status
+{
+    margin-bottom: 3em;
+}
 
 /* TEMPORARY */
 #skills
