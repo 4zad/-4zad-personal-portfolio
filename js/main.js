@@ -6,6 +6,16 @@
     =================================================
 */
 
+// const toggleMenu = (status) =>
+// {
+
+// }
+
+
+
+
+
+/* --- CODE FOR NAVIGATION BAR INDICATOR OF WHICH SECTION YOU ARE VIEWING --- */
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav_bar > .nav_links > ul li > a');
 // console.log(sections); // test to see if `document.querySelectorAll('section')` was successful
@@ -37,10 +47,4 @@ window.addEventListener('scroll', () => {
     })
 });
 
-
-
-// const toggleMenu = (status) =>
-// {
-    
-// }
 

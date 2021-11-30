@@ -39,6 +39,11 @@
     vertical-align: baseline;
 }
 
+html
+{
+    scroll-behavior: smooth;
+}
+
 div, span, p
 {
     font-family: 'Merriweather', serif;
@@ -138,8 +143,8 @@ table
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 16px;
-    letter-spacing: 3px;
-    padding: 24px 24px;
+    letter-spacing: 0.4em;
+    padding: 16px 16px 32px;
     width: 100%; /* Note: Having width larger than space avalailable will ensure no matter how many or how few nav links exist they take up the full nav bar in space and span out equally. This is due to the borderbox property applied on everything in the 'CSS RESET'. */
     transition: 0.5s ease-out;
 }
@@ -164,7 +169,7 @@ table
     background: var(--primary-accent);
     display: inline-block;
     position: absolute;
-    top: 75%;
+    top: 65%;
     left: 50%;
     margin-left: calc(var(--bulb-size) / 2 * -1);
     margin-top: calc(var(--bulb-size) / 2 * -1);
@@ -182,18 +187,14 @@ table
     display: none;
 }
 
+
+
 /* HERO BANNER */
 
 
 
 
 /* TEMPORARY */
-#about
-{
-    height: 100vh;
-    background-color: green;
-}
-
 #skills
 {
     height: 100vh;
@@ -212,6 +213,8 @@ table
     background-color: red;
 }
 
+
+
 /* ----- HEADER MEDIA QUERIES ----- */
 /* Bootstrap v5.0 Breakpoints. */
 @media(max-width: 992px)
@@ -221,6 +224,26 @@ table
 
 @media(max-width: 768px)
 {
+    .nav_bar
+    {
+        bottom: 0;
+        top: auto;
+    }
+
+    .nav_links > ul > li > a
+    {
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        padding: 28px 10px 10px;
+        transition: 0.5s ease-out;
+    }
+
+    .nav_links > ul > li > a::after 
+    {
+        --bulb-size: 8px;
+        top: 35%;
+    }
 
 }
 
