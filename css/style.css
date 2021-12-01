@@ -59,36 +59,36 @@ h1, h2, h3, h4, h5, h6
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section 
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section
 {
 	display: block;
 }
 
-body 
+body
 {
     height: auto;
 	line-height: 1;
 }
 
-ol, ul 
+ol, ul
 {
 	list-style: none;
 }
 
-blockquote, q 
+blockquote, q
 {
 	quotes: none;
 }
 
 blockquote:before, blockquote:after,
-q:before, q:after 
+q:before, q:after
 {
 	content: '';
 	content: none;
 }
 
-table 
+table
 {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -96,18 +96,6 @@ table
 
 /* ----- HEADER ----- */
 /* NAVIGATION BAR */
-#header
-{
-    height: 100vh;
-    width: 100%;
-    background-image: url(../img/hero-bg.png);
-    background-color: var(--primary-bg);
-    background-size: cover;
-    background-position: top left;
-    position: relative;
-    overflow: hidden;
-}
-
 .nav_bar
 {
     position: fixed;
@@ -117,6 +105,7 @@ table
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-bg);
+    z-index: 5;
 }
 
 .nav_links > ul
@@ -183,27 +172,30 @@ table
     transform: scale(1);
 }
 
-.nav_bar .fas
-{
-    display: none;
-}
-
 
 
 /* HERO BANNER */
-/* Reusable Classes */
-.primary_accent
+#header
 {
-    color: var(--primary-accent) !important;
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/hero-bg.png);
+    background-color: var(--primary-bg);
+    background-size: cover;
+    background-position: bottom 0% left 0%;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Reusable Classes */
 .intro_keyword
 {
     white-space: nowrap !important;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
     color: var(--secondary-text) !important;
 }
 
+/* Hover to Expand Animation */
 /* .intro_keyword::before {
     content: "DESIGNER";
     position: absolute;
@@ -228,15 +220,15 @@ table
     transition: 1s ease;
 }
 
-.intro_keyword.designer::before 
+.intro_keyword.designer::before
 {
     content: "DESIGNER";
 }
-.intro_keyword.front_end::before 
+.intro_keyword.front_end::before
 {
     content: "FRONT END DEVELOPER";
 }
-.intro_keyword.user_experience::before 
+.intro_keyword.user_experience::before
 {
     content: "USER EXPERIENCE";
 }
@@ -265,28 +257,28 @@ table
     transition: 1s ease;
 }
 
-.intro_keyword.designer::after 
+.intro_keyword.designer::after
 {
     content: "DESIGNER";
 }
-.intro_keyword.front_end::after 
+.intro_keyword.front_end::after
 {
     content: "FRONT END DEVELOPER";
 }
-.intro_keyword.user_experience::after 
+.intro_keyword.user_experience::after
 {
     content: "USER EXPERIENCE";
 }
 
-.intro_keyword:hover::before 
+.intro_keyword:hover::before
 {
     transform: translate(-8px,8px);
 }
 
-.intro_keyword:hover::after 
+.intro_keyword:hover::after
 {
     transform: translate(calc(-100% + 8px),-8px);
-} 
+}
 
 /* Non-Reusable Classes */
 .hero_textbox
@@ -294,23 +286,87 @@ table
     display: block;
     position: absolute;
     text-align: left;
-    width: max(300px,50%);
-    top: 70%;
+    width: max(350px,50%);
+    top: 75%;
     transform: translateY(-50%);
-    margin: 0em 3em;
+    padding-left: 5%;
 }
 
 .intro_greeting
 {
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
 }
 
-.intro_greeting p, .intro_greeting span
+.intro_greeting p
 {
     font-family: 'Major Mono Display', monospace;
-    font-size: clamp(1.75rem, 4vw, 7rem);
-    color: var(--secondary-text);
+    font-size: clamp(1.75rem, 4vw, 6.5rem);
+    position: relative;
+    line-height: 1.25;
 }
+
+/* Typewriter Animation */
+.intro_greeting > p:nth-child(1)
+{
+    color: var(--secondary-text) !important;
+    width: max-content;
+    --type-speed: 2s;
+    --delay-time: 3s;
+    --num-chars: 7;
+}
+
+.intro_greeting > p:nth-child(1)::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-bg);
+    animation:
+        typewriter
+        var(--type-speed)
+        steps(var(--num-chars))
+        var(--delay-time)
+        forwards;
+}
+
+.intro_greeting > p:nth-child(2)
+{
+    color: var(--primary-accent) !important;
+    width: max-content;
+    --type-speed: 4s;
+    --delay-time: 6s;
+    --num-chars: 14;
+}
+
+.intro_greeting > p:nth-child(2):before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-bg);
+    animation:
+        typewriter
+        var(--type-speed)
+        steps(var(--num-chars))
+        var(--delay-time)
+        forwards;
+}
+
+/* Key Frames (Definition) for 'typewriter' animation */
+@keyframes typewriter
+{
+    to
+    {
+        left: 100%;
+    }
+}
+/* -------------------------------------------------- */
 
 .intro_desc
 {
@@ -320,16 +376,48 @@ table
 .intro_desc p, .intro_desc span
 {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(1rem, 2vw, 2.5rem);
+    font-size: clamp(1rem, 2vw, 3rem);
     color: var(--primary-text);
     font-weight: 500;
     line-height: 1.5em;
+    position: relative;
 }
 
 .intro_status
 {
     margin-bottom: 3em;
 }
+
+.intro_status p
+{
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 3rem);
+    color: var(--primary-text);
+    font-weight: 500;
+    line-height: 1.5em;
+    position: relative;
+}
+
+.hero_socials
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 2em;
+    text-align: left;
+    width: max(100px,25%);
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    padding-left: 5%;
+}
+
+.hero_socials i
+{
+    font-size: clamp(2rem, 2.5vw, 5rem);
+    color: var(--primary-accent);
+}
+
 
 /* TEMPORARY */
 #skills
@@ -376,17 +464,24 @@ table
         transition: 0.5s ease-out;
     }
 
-    .nav_links > ul > li > a::after 
+    .nav_links > ul > li > a::after
     {
         --bulb-size: 8px;
         top: 35%;
     }
 
+    #header
+    {
+        background-position: bottom 0% left 15%;
+    }
 }
 
 @media(max-width: 576px)
 {
-
+    #header
+    {
+        background-position: bottom 0% left 20%;
+    }
 }
 
 
