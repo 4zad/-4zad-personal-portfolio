@@ -6,22 +6,11 @@
     =================================================
 */
 
-// const toggleMenu = (status) =>
-// {
-
-// }
-
-
-
-
-
-/* --- CODE FOR NAVIGATION BAR INDICATOR OF WHICH SECTION YOU ARE VIEWING --- */
+/* --- CODE FOR NAVIGATION BAR INDICATOR TRIGGER OF WHICH SECTION YOU ARE VIEWING --- */
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav_bar > .nav_links > ul li > a');
-const sectionHeads = document.querySelectorAll('section > h1');
 // console.log(sections); // test to see if `document.querySelectorAll('section')` was successful
 // console.log(navLinks); // test to see if `document.querySelectorAll('.nav_bar > .nav_links > ul li a')` was successful
-// console.log(sectionHeads); // test to see if `document.querySelectorAll('section > h1')` was successful
 
 window.addEventListener('scroll', () => {
     let current = '';
@@ -44,7 +33,21 @@ window.addEventListener('scroll', () => {
 
         if (a.classList.contains(current)) {
             a.classList.add('active');
-            // console.log('active class placement changed'); // test to see if the program enters the if statement, signaling that the 'current' id fo the section shown in the viewport has a link with a matching class name
+            // console.log('active class placement changed'); // test to see if the program enters the if statement, signaling that the 'current' id for the section shown in the viewport has a navigation link with a matching class name
+        }
+    })
+
+    /* --- CODE FOR FLICKERING ANIMATION TRIGGER --- */
+    const sectionHeads = document.querySelectorAll('section > h1');
+    // console.log(sectionHeads); // test to see if `document.querySelectorAll('section > h1')` was successful
+
+    sections.forEach((section) => {
+        const currentSectionTop = section.offsetTop;
+        // console.log(eachSectionTop); // test to see if 'section.offsetTop' is returning the correct values of how far the beginning/top of each section is from the beginning/top of the webpage
+        const currentSectionHeight = section.clientHeight;
+
+        if (scrollY >= (currentSectionTop - (currentSectionHeight * 3 / 5))) {
+            current = section.getAttribute('id');
         }
     })
 
@@ -53,6 +56,7 @@ window.addEventListener('scroll', () => {
 
         if (h1.classList.contains(`${current}_header`)) {
             h1.classList.add('flicker');
+            // console.log('flicker class placement changed'); // test to see if the program enters the if statement, signaling that the 'current' id for the section shown in the viewport has a header inside it with a class name in the following pattern: `${current}_header`
         }
     })
 });
@@ -60,3 +64,4 @@ window.addEventListener('scroll', () => {
 
 
 
+ 
