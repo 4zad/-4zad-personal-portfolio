@@ -18,8 +18,10 @@
 /* --- CODE FOR NAVIGATION BAR INDICATOR OF WHICH SECTION YOU ARE VIEWING --- */
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav_bar > .nav_links > ul li > a');
+const sectionHeads = document.querySelectorAll('section > h1');
 // console.log(sections); // test to see if `document.querySelectorAll('section')` was successful
 // console.log(navLinks); // test to see if `document.querySelectorAll('.nav_bar > .nav_links > ul li a')` was successful
+// console.log(sectionHeads); // test to see if `document.querySelectorAll('section > h1')` was successful
 
 window.addEventListener('scroll', () => {
     let current = '';
@@ -45,6 +47,16 @@ window.addEventListener('scroll', () => {
             // console.log('active class placement changed'); // test to see if the program enters the if statement, signaling that the 'current' id fo the section shown in the viewport has a link with a matching class name
         }
     })
+
+    sectionHeads.forEach((h1) => {
+        h1.classList.remove('flicker');
+
+        if (h1.classList.contains(`${current}_header`)) {
+            h1.classList.add('flicker');
+        }
+    })
 });
+
+
 
 

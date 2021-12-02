@@ -351,12 +351,12 @@ table
     bottom: 0;
     left: 0;
     background-color: var(--primary-bg);
-    animation:
-        typewriter
-        var(--type-speed)
-        steps(var(--num-chars))
-        var(--delay-time)
-        forwards;
+    --animation-properties: typewriter var(--type-speed) steps(var(--num-chars)) var(--delay-time) forwards;
+    /* @keyframes name | duration | easing-function | delay | iteration-count | direction | fill-mode | play-state */
+    animation: var(--animation-properties);
+    -moz-animation: var(--animation-properties);
+    -webkit-animation: var(--animation-properties);
+    -o-animation: var(--animation-properties);
 }
 
 .intro_greeting > p:nth-child(2)
@@ -377,12 +377,12 @@ table
     bottom: 0;
     left: 0;
     background-color: var(--primary-bg);
-    animation:
-        typewriter
-        var(--type-speed)
-        steps(var(--num-chars))
-        var(--delay-time)
-        forwards;
+    --animation-properties: typewriter var(--type-speed) steps(var(--num-chars)) var(--delay-time) forwards;
+    /* @keyframes name | duration | easing-function | delay | iteration-count | direction | fill-mode | play-state */
+    animation: var(--animation-properties);
+    -moz-animation: var(--animation-properties);
+    -webkit-animation: var(--animation-properties);
+    -o-animation: var(--animation-properties);
 }
 
 /* Key Frames (Definition) for 'typewriter' animation */
@@ -451,7 +451,7 @@ table
 /* ----- MAIN SECTION ----- */
 
 /* REUSABLE CLASSES */
-#main h1
+#main h1, #footer h1
 {
     font-family: var(--header-font);
     font-weight: 800;
@@ -459,6 +459,26 @@ table
     color: var(--secondary-header);
     line-height: 1.5em;
     position: relative;
+}
+
+#main section > h1::before, #footer section > h1::before
+{
+    position: absolute !important;
+    text-shadow: 0px 0px 4px var(--secondary-header);
+    filter: blur(2px) brightness(0);
+}
+
+.skills_header::before
+{
+    content: 'SKILLS';
+}
+.projects_header::before
+{
+    content: 'PROJECTS';
+}
+.contact_header::before
+{
+    content: 'CONTACT ME';
 }
 
 #main h3 
@@ -487,7 +507,7 @@ table
 
 .grid
 {
-    display: grid;
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr);
     gap: 3em;
 }
@@ -495,27 +515,47 @@ table
 /* Neon Lights Flicker Animation */
 .flicker::before 
 {
-  position: absolute;
-  text-shadow: 0px 0px 2px var(--secondary-header);
-  filter: blur(2px) brightness(0);
-  animation: flicker 2s linear 2s forwards;
-  /* animation-delay: 3s; */
+    position: absolute !important;
+    text-shadow: 0px 0px 4px var(--secondary-header);
+    filter: blur(2px) brightness(0);
+    --animation-properties: flicker 2.5s linear 2s forwards;
+    /* @keyframes name | duration | easing-function | delay | iteration-count | direction | fill-mode | play-state */
+    /* animation-iteration-count: infinite */
+    animation: var(--animation-properties);
+    -moz-animation: var(--animation-properties);
+    -webkit-animation: var(--animation-properties);
+    -o-animation: var(--animation-properties);
 }
 
-.flicker.skills_header::before
+/* .flicker.skills_header::before
 {
     content: 'SKILLS';
 }
-
 .flicker.projects_header::before
 {
     content: 'PROJECTS';
 }
-
 .flicker.contact_header::before
 {
     content: 'CONTACT ME';
-}
+} */
+
+/* Key Frames (Definition) for 'flicker' infinite iteration animation (7s-10s duration required; based on preference) */
+/* @keyframes flicker 
+{
+  0% { filter: blur(5px) brightness(1); }
+  1% { filter: blur(5px) brightness(0); }
+  2% { filter: blur(5px) brightness(1); }
+  3% { filter: blur(5px) brightness(0); }
+  4% { filter: blur(5px) brightness(1); }
+  7% { filter: blur(5px) brightness(0); }
+  8% { filter: blur(5px) brightness(1); }
+  15% { filter: blur(5px) brightness(1); }
+  24% { filter: blur(5px) brightness(0); }
+  25% { filter: blur(5px) brightness(1); }
+  100% { filter: blur(5px) brightness(1); }
+} */
+/* -------------------------------------------------------- */
 
 /* Key Frames (Definition) for 'flicker' animation */
 @keyframes flicker 
@@ -563,7 +603,7 @@ table
 {
     height: 100vh;
     /* background-color: var(--primary-bg); */
-    background-color: lightcoral;
+    background-color: lightcoral; 
 }
 
 
@@ -573,6 +613,7 @@ table
 #contact
 {
     min-height: 100vh;
+    /* background-color: var(--primary-bg); */
     background-color: skyblue;
 }
 
@@ -618,9 +659,9 @@ table
 
     /* ------------------------ */
     /* ----- MAIN SECTION ----- */
-    .row
+    .grid
     {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 2em;
     }
 }
