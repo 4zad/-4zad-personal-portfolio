@@ -6,6 +6,7 @@
     =================================================
 */
 
+/* ------------------------------------------------- */
 /* ----- CSS CUSTOM PROPERTIES / CSS VARIABLES ----- */
 :root
 {
@@ -14,19 +15,36 @@
     --secondary-accent: #C7875D;
     --tertiary-accent: #8E6448;
     --primary-bg: #1D1D1D;
-    --secondary-bg: #4A392E;
+    --secondary-bg: #282421;
     --primary-header: var(--primary-accent);
     --secondary-header: var(--tertiary-accent);
     --primary-text: #9D9D9D;
     --secondary-text: #FFFFFF;
 
     /* MARGINS */
+    --section-margin: auto;
+    --container-margin: auto;
+    
 
     /* PADDING */
+    --section-padding-x: 0%;
+    --section-padding-y: 10%;
+    --container-padding-x: 10%;
+    --container-padding-y: 3em;
 
     /* FONT & TYPOGRAPHY */
+    --header-font: 'Montserrat', sans-serif;
+    --body-font: 'Work Sans', sans-serif;;
+
+    /* Z-INDEX */
+    --z-tooltip: 5;
+    --z-fixed: 10;
+    --z-modal: 10;
 }
 
+
+
+/* --------------------- */
 /* ----- CSS RESET ----- */
 *
 {
@@ -46,7 +64,7 @@ html
 
 div, span, p
 {
-    font-family: 'Merriweather', serif;
+    font-family: var(--body-font);
     font-weight: 300;
     font-size: 0.95rem;
     line-height: 1.5em;
@@ -54,7 +72,7 @@ div, span, p
 
 h1, h2, h3, h4, h5, h6
 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--header-font);
     font-weight: 600;
 }
 
@@ -94,8 +112,12 @@ table
 	border-spacing: 0;
 }
 
-/* ----- HEADER ----- */
-/* NAVIGATION BAR */
+
+
+/* -------------------------- */
+/* ----- HEADER SECTION ----- */
+
+/* ----- NAVIGATION BAR ----- */
 .nav_bar
 {
     position: fixed;
@@ -105,11 +127,12 @@ table
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary-bg);
-    z-index: 5;
+    z-index: var(--z-fixed);
 }
 
 .nav_links > ul
 {
+	/* list-style: none; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -130,7 +153,7 @@ table
     display: block;
     text-decoration: none;
     color: var(--primary-text);
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--header-font);
     font-weight: 600;
     font-size: 16px;
     letter-spacing: 0.4em;
@@ -174,12 +197,16 @@ table
 
 
 
-/* HERO BANNER */
+/* ----------------------- */
+/* ----- HERO BANNER ----- */
+
 #header
 {
     height: 100vh;
     width: 100%;
-    background-image: url(../img/hero-bg.png);
+    background-image: url(../img/hero-bg.png); 
+    /* background: linear-gradient(0deg,var(--primary-bg),rgba(0, 0, 0, 0) 15%);
+    The values 'to top', 'to bottom', 'to left', and 'to right' are equivalent to the angles '0deg', '180deg', '270deg', and '90deg', respectively. The other values are translated into an angle. */
     background-color: var(--primary-bg);
     background-size: cover;
     background-position: bottom 0% left 0%;
@@ -187,7 +214,7 @@ table
     overflow: hidden;
 }
 
-/* Reusable Classes */
+/* REUSABLE CLASSES */
 .intro_keyword
 {
     white-space: nowrap !important;
@@ -280,7 +307,7 @@ table
     transform: translate(calc(-100% + 8px),-8px);
 }
 
-/* Non-Reusable Classes */
+/* NON-REUSABLE CLASSES */
 .hero_textbox
 {
     display: block;
@@ -302,7 +329,7 @@ table
     font-family: 'Major Mono Display', monospace;
     font-size: clamp(1.75rem, 4vw, 6.5rem);
     position: relative;
-    line-height: 1.25;
+    line-height: 1.25em;
 }
 
 /* Typewriter Animation */
@@ -375,7 +402,7 @@ table
 
 .intro_desc p, .intro_desc span
 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--header-font);
     font-size: clamp(1rem, 2vw, 3rem);
     color: var(--primary-text);
     font-weight: 500;
@@ -390,7 +417,7 @@ table
 
 .intro_status p
 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--header-font);
     font-size: clamp(1rem, 1.5vw, 3rem);
     color: var(--primary-text);
     font-weight: 500;
@@ -405,7 +432,7 @@ table
     justify-content: space-around;
     gap: 2em;
     text-align: left;
-    width: max(100px,25%);
+    width: fit-content;
     position: absolute;
     top: 30%;
     transform: translateY(-50%);
@@ -419,27 +446,90 @@ table
 }
 
 
-/* TEMPORARY */
-#skills
+
+/* ------------------------ */
+/* ----- MAIN SECTION ----- */
+
+/* REUSABLE CLASSES */
+#main h1
 {
-    height: 100vh;
-    background-color: blue;
+    font-family: var(--header-font);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 3vw, 5rem);
+    color: var(--primary-accent);
+    line-height: 1.5em;
 }
 
+#main h3 
+{
+    font-family: var(--header-font);
+    font-weight: 600;
+    font-size: clamp(1.25rem, 2.25vw, 3rem);
+    color: var(--secondary-accent);
+    line-height: 1.5em;
+    padding-bottom: 0.5em;
+}
+
+#main p, #main li
+{
+    font-family: var(--body-font);
+    font-size: clamp(1.05rem, 1.5vw, 2.25rem);
+    font-weight: 500;
+    color: var(--primary-text);
+    line-height: 1.5em;
+}
+
+.container
+{
+    padding: var(--container-padding-y) var(--container-padding-x);
+}
+
+.row
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3em;
+}
+
+/* NON-REUSABLE CLASSES */
+/* ----- SKILLS ----- */
+#skills
+{
+    min-height: 100vh;
+    background-color: var(--primary-bg);
+    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 1.5);
+    text-align: center;
+}
+
+.skills_cell 
+{
+    background-color: var(--secondary-bg);
+    border: 3px var(--secondary-accent) solid;
+    border-radius: 16px;
+    padding: 2em 1em;
+}
+
+/* ----- PROJECTS ----- */
 #projects
 {
     height: 100vh;
-    background-color: purple;
+    /* background-color: var(--primary-bg); */
+    background-color: lightcoral;
 }
 
+
+
+
+/* ----- CONTACT ----- */
 #contact
 {
-    height: 100vh;
-    background-color: red;
+    min-height: 100vh;
+    background-color: skyblue;
 }
 
 
 
+/* -------------------------------- */
 /* ----- HEADER MEDIA QUERIES ----- */
 /* Bootstrap v5.0 Breakpoints. */
 @media(max-width: 992px)
@@ -449,6 +539,8 @@ table
 
 @media(max-width: 768px)
 {
+    /* ----------------------- */
+    /* ----- HERO BANNER ----- */
     .nav_bar
     {
         bottom: 0;
@@ -474,10 +566,20 @@ table
     {
         background-position: bottom 0% left 15%;
     }
+
+    /* ------------------------ */
+    /* ----- MAIN SECTION ----- */
+    .row
+    {
+        grid-template-columns: 1fr;
+        gap: 2em;
+    }
 }
 
 @media(max-width: 576px)
 {
+    /* ----------------------- */
+    /* ----- HERO BANNER ----- */
     #header
     {
         background-position: bottom 0% left 20%;
