@@ -24,13 +24,14 @@
     /* MARGINS */
     --section-margin: auto;
     --container-margin: auto;
-    
 
     /* PADDING */
     --section-padding-x: 0%;
     --section-padding-y: 10%;
     --container-padding-x: 10%;
     --container-padding-y: 3em;
+    --form-padding-x: 1em;
+    --form-padding-y: 1em;
 
     /* FONT & TYPOGRAPHY */
     --header-font: 'Montserrat', sans-serif;
@@ -112,6 +113,11 @@ table
 	border-spacing: 0;
 }
 
+/* :focus
+{
+    outline: none;
+} */
+
 
 
 /* -------------------------- */
@@ -162,14 +168,17 @@ table
     transition: 0.5s ease-out;
 }
 
-.nav_links > ul > li > a:hover
+.nav_links > ul > li > a:hover,
+.nav_links > ul > li > a:focus
 {
     color: var(--primary-accent);
+    text-shadow: 0px 0px 4px var(--primary-accent), 0px 0px 8px var(--primary-accent);
 }
 
 .nav_links > ul > li > a.active
 {
     color: var(--primary-accent);
+    text-shadow: 0px 0px 4px var(--primary-accent), 0px 0px 8px var(--primary-accent);
 }
 
 .nav_links > ul > li > a::after /* ::after pseudo element used to create bulb/circle under active link */
@@ -180,6 +189,7 @@ table
     height: var(--bulb-size);
     border-radius: calc(var(--bulb-size) / 2); /* Note: 'calc()' function can be utilised to make calculations and utilise the calculated values directly in your CSS.*/
     background: var(--primary-accent);
+    box-shadow: 0px 0px 4px var(--primary-accent), 0px 0px 8px var(--primary-accent);
     display: inline-block;
     position: absolute;
     top: 65%;
@@ -187,7 +197,7 @@ table
     margin-left: calc(var(--bulb-size) / 2 * -1);
     margin-top: calc(var(--bulb-size) / 2 * -1);
     transform: scale(0);
-    transition: transform .5s cubic-bezier(0.600, 0.000, 0.400, 1.700); /* Note: 'cubic-bezier' is utilised to create a graph which can smooth out certain parts of an animation, such as the beginning and end. */
+    transition: transform 0.5s cubic-bezier(0.600, 0.000, 0.400, 1.700); /* Note: 'cubic-bezier' is utilised to create a graph which can smooth out certain parts of an animation, such as the beginning and end. */
 }
 
 .nav_links > ul > li > a.active::after
@@ -443,6 +453,14 @@ table
 {
     font-size: clamp(2rem, 2.5vw, 5rem);
     color: var(--primary-accent);
+    transition: 0.5s cubic-bezier(0.150, 0.400, 0.400, 1.700);;
+}
+
+.hero_socials i:hover,
+.hero_socials i:focus
+{
+    text-shadow: 0px 4px 12px var(--primary-accent); 
+    transform: scale(1.1);
 }
 
 
@@ -451,8 +469,10 @@ table
 /* ----- MAIN SECTION ----- */
 
 /* REUSABLE CLASSES */
-#main h1, #footer h1
+#main h1, 
+#footer h1
 {
+    display: block;
     font-family: var(--header-font);
     font-weight: 800;
     font-size: clamp(1.75rem, 3vw, 5rem);
@@ -489,15 +509,20 @@ table
     color: var(--primary-header);
     line-height: 1.5em;
     padding-bottom: 0.5em;
+    /* text-shadow: 0px 0px 2px var(--primary-accent); */
 }
 
-#main p, #main li
+#main p, 
+#main li,
+#footer p,
+#footer li
 {
     font-family: var(--body-font);
     font-size: clamp(1.05rem, 1.5vw, 2.25rem);
     font-weight: 500;
     color: var(--primary-text);
     line-height: 1.5em;
+    /* text-shadow: 0px 0px 1px var(--primary-text); */
 }
 
 .container
@@ -580,42 +605,187 @@ table
 {
     min-height: 100vh;
     background-color: var(--primary-bg);
-    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 1.5);
+    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 2);
     text-align: center;
 }
 
 .skills_cell 
 {
     background-color: var(--secondary-bg);
-    border: 3px var(--secondary-accent) solid;
-    border-radius: 16px;
+    border: 1px solid var(--primary-accent);
+    border-radius: 8px;
     padding: 2em 1em;
-    /* transition: 0.5s ease; */
+    box-shadow: 0px 0px 8px var(--primary-accent), inset 0px 0px 8px var(--primary-accent), 0px 0px 4px var(--primary-accent), inset 0px 0px 4px var(--primary-accent);
 }
-
-/* .skills_cell:hover
-{
-    transform: scale(1.05);
-} */
 
 /* ----- PROJECTS ----- */
 #projects
 {
-    height: 100vh;
+    min-height: 100vh;
     /* background-color: var(--primary-bg); */
+    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 2);
+    text-align: center;
     background-color: lightcoral; 
 }
 
 
 
 
+/* -------------------------- */
+/* ----- FOOTER SECTION ----- */
+
+/* REUSABLE CLASSES */
+/* Neon button with sparks animation on hover */
+.neon_button
+{
+    cursor: pointer;
+    position: relative;
+    padding: var(--form-padding-y) calc(var(--form-padding-x) * 2);
+    border: 0px solid var(--primary-accent);
+    border-radius: 8px;
+    font-size: clamp(0.95rem, 1.25vw, 2rem);
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 0.4em;
+    /* color: var(--primary-header); */
+    color: var(--primary-text);
+    background-color: var(--secondary-bg);
+    overflow: hidden;
+    transition: 0.2s;
+    --spark-thickness: 3px;
+}
+
+.neon_button:hover
+{
+    /* color: var(--secondary-bg); */
+    color: var(--primary-header);
+    /* background-color: var(--primary-accent); */
+    /* box-shadow: 0px 0px 4px var(--primary-accent), 0px 0px 8px var(--primary-accent), 0px 0px 16px var(--primary-accent), 0px 0px 32px var(--primary-accent); */
+    text-shadow: 0px 0px 4px var(--primary-accent), 0px 0px 8px var(--primary-accent), 0px 0px 16px var(--primary-accent);
+    transition-delay: 1s;
+}
+
+.neon_button span
+{
+    position: absolute;
+    display: block;
+}
+.neon_button span:nth-child(1)
+{
+    top: 0%;
+    left: -100%;
+    width: 100%;
+    height: var(--spark-thickness);
+    background: linear-gradient(90deg, transparent, var(--primary-accent));
+}
+.neon_button:hover span:nth-child(1)
+{
+    left: 100%;
+    transition: 1s;
+}
+.neon_button span:nth-child(2)
+{
+    top: -100%;
+    right: 0%;
+    width: var(--spark-thickness);
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--primary-accent));
+}
+.neon_button:hover span:nth-child(2)
+{
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+.neon_button span:nth-child(3)
+{
+    bottom: 0%;
+    right: -100%;
+    width: 100%;
+    height: var(--spark-thickness);
+    background: linear-gradient(270deg, transparent, var(--primary-accent));
+}
+.neon_button:hover span:nth-child(3)
+{
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+.neon_button span:nth-child(4)
+{
+    bottom: -100%;
+    left: 0%;
+    width: var(--spark-thickness);
+    height: 100%;
+    background: linear-gradient(0deg, transparent, var(--primary-accent));
+}
+.neon_button:hover span:nth-child(4)
+{
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+/* ------------------------------------------ */
+
+/* NON-REUSABLE CLASSES */
 /* ----- CONTACT ----- */
 #contact
 {
     min-height: 100vh;
-    /* background-color: var(--primary-bg); */
-    background-color: skyblue;
+    background-color: var(--primary-bg);
+    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 2);
+    text-align: center;
 }
+
+.contact_info img 
+{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+
+
+.email_form input, .email_form textarea
+{
+    width: 100%;
+    margin: 0px 0px 1.5rem;
+    padding: var(--form-padding-y) var(--form-padding-x);
+    box-sizing: border-box;
+    background-color: var(--secondary-bg);
+    border: 0px solid var(--primary-accent);
+    /* box-shadow: 0px 0px 8px var(--primary-accent), inset 0px 0px 8px var(--primary-accent); */
+    border-radius: 8px;
+    outline: none;
+    font-family: var(--body-font);
+    font-size: clamp(0.95rem, 1.25vw, 2rem);
+    font-weight: 500;
+    color: var(--primary-text);
+}
+
+.email_form input:focus, 
+.email_form textarea:focus
+{
+    border: 1px solid var(--primary-accent);
+    box-shadow: 0px 0px 8px var(--primary-accent), inset 0px 0px 8px var(--primary-accent), 0px 0px 4px var(--primary-accent), inset 0px 0px 4px var(--primary-accent); 
+}
+
+.email_form textarea
+{
+    resize: none;
+}
+
+.form_buttons
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ----- FOOTER CONTENT ----- */
+
+
+
 
 
 
@@ -663,6 +833,11 @@ table
     {
         grid-template-columns: 1fr !important;
         gap: 2em;
+    }
+
+    .neon_button
+    {
+        letter-spacing: 0.2em;
     }
 }
 
