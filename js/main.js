@@ -19,10 +19,12 @@ window.addEventListener('scroll', () => {
 
     sections.forEach((section) => {
         const currentSectionTop = section.offsetTop;
-        // console.log(eachSectionTop); // test to see if 'section.offsetTop' is returning the correct values of how far the beginning/top of each section is from the beginning/top of the webpage
+        // console.log(currentSectionTop); // test to see if 'section.offsetTop' is returning the correct values of how far the beginning/top of each section is from the beginning/top of the webpage
         const currentSectionHeight = section.clientHeight;
+        // console.log(currentSectionHeight); // test to see if the right height is being measured by 'section.clientHeight'
 
-        if (scrollY >= (currentSectionTop - (currentSectionHeight * 2 / 5))) {
+        if (scrollY >= (currentSectionTop - (currentSectionHeight * 1 / 3))) {
+            // console.log(currentSectionTop - (currentSectionHeight * 2 / 5));
             current = section.getAttribute('id');
         }
     })
@@ -43,10 +45,11 @@ window.addEventListener('scroll', () => {
 
     sections.forEach((section) => {
         const currentSectionTop = section.offsetTop;
-        // console.log(eachSectionTop); // test to see if 'section.offsetTop' is returning the correct values of how far the beginning/top of each section is from the beginning/top of the webpage
+        // console.log(currentSectionTop); // test to see if 'section.offsetTop' is returning the correct values of how far the beginning/top of each section is from the beginning/top of the webpage
         const currentSectionHeight = section.clientHeight;
+        // console.log(currentSectionHeight); // test to see if the right height is being measured by 'section.clientHeight'
 
-        if (scrollY >= (currentSectionTop - (currentSectionHeight * 3 / 5))) {
+        if (scrollY >= (currentSectionTop - (currentSectionHeight * 2 / 5))) {
             current = section.getAttribute('id');
         }
     })
@@ -64,4 +67,4 @@ window.addEventListener('scroll', () => {
 
 
 
- 
+
