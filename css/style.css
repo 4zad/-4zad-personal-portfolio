@@ -544,7 +544,7 @@ table
     position: absolute !important;
     text-shadow: 0px 0px 4px var(--secondary-header);
     filter: blur(2px) brightness(0);
-    --animation-properties: flicker 2.5s linear 2s forwards;
+    --animation-properties: flicker 2.5s linear 1s forwards;
     /* @keyframes name | duration | easing-function | delay | iteration-count | direction | fill-mode | play-state */
     /* animation-iteration-count: infinite */
     animation: var(--animation-properties);
@@ -600,42 +600,6 @@ table
 }
 /* ----------------------------------------------- */
 
-/* NON-REUSABLE CLASSES */
-/* ----- SKILLS ----- */
-#skills
-{
-    min-height: 100vh;
-    background-color: var(--primary-bg);
-    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 2);
-    text-align: center;
-}
-
-.skills_cell 
-{
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--primary-accent);
-    border-radius: 8px;
-    padding: 2em 1em;
-    box-shadow: 0px 0px 8px var(--primary-accent), inset 0px 0px 8px var(--primary-accent), 0px 0px 4px var(--primary-accent), inset 0px 0px 4px var(--primary-accent);
-}
-
-/* ----- PROJECTS ----- */
-#projects
-{
-    min-height: 100vh;
-    /* background-color: var(--primary-bg); */
-    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 2);
-    text-align: center;
-    background-color: lightcoral; 
-}
-
-
-
-
-/* -------------------------- */
-/* ----- FOOTER SECTION ----- */
-
-/* REUSABLE CLASSES */
 /* Neon button with sparks animation on hover */
 .neon_button
 {
@@ -728,7 +692,39 @@ table
 }
 /* ------------------------------------------ */
 
+
+
 /* NON-REUSABLE CLASSES */
+/* ----- SKILLS ----- */
+#skills
+{
+    min-height: 100vh;
+    background-color: var(--primary-bg);
+    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 2);
+    text-align: center;
+}
+
+.skills_cell 
+{
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--primary-accent);
+    border-radius: 8px;
+    padding: 2em 1em;
+    box-shadow: 0px 0px 8px var(--primary-accent), inset 0px 0px 8px var(--primary-accent), 0px 0px 4px var(--primary-accent), inset 0px 0px 4px var(--primary-accent);
+}
+
+/* ----- PROJECTS ----- */
+#projects
+{
+    min-height: 100vh;
+    background-color: var(--primary-bg);
+    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 2);
+    text-align: center;
+}
+
+
+
+
 /* ----- CONTACT ----- */
 #contact
 {
@@ -791,14 +787,59 @@ table
     justify-content: space-between;
 }
 
+
+
+/* -------------------------- */
+/* ----- FOOTER SECTION ----- */
+
 /* ----- FOOTER CONTENT ----- */
 
+#footer
+{
+    background-color: var(--primary-bg);
+    padding: calc(var(--section-padding-y) / 2) var(--section-padding-x) ;
+    text-align: center;
+}
 
+#footer h4
+{
+    font-weight: 500;
+    font-size: clamp(1.15rem, 1.5vw, 2rem);
+    color: var(--secondary-header);
+    line-height: 2em;
+}
+
+#footer h5
+{
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: var(--primary-text);
+}
+
+#footer p
+{
+    font-weight: 300;
+    font-size: clamp(0.95rem, 1.15vw, 1.25rem);
+    color: var(--secondary-header);
+    line-height: 1.5em;
+}
+
+.footer_blurb
+{
+    padding: 2em 7em;
+}
+
+
+
+.footer_remarks
+{
+    padding: 64px 0px;
+}
 
 
 
 /* -------------------------------- */
-/* ----- HEADER MEDIA QUERIES ----- */
+/* ----- MEDIA QUERIES ----- */
 /* Bootstrap v5.0 Breakpoints. */
 @media(max-width: 992px)
 {
@@ -843,8 +884,6 @@ table
         gap: 2em;
     }
 
-    /* -------------------------- */
-    /* ----- FOOTER SECTION ----- */
     .neon_button
     {
         letter-spacing: 0.2em;
@@ -853,6 +892,13 @@ table
     .contact_info 
     {
         padding: 0;
+    }
+
+    /* -------------------------- */
+    /* ----- FOOTER SECTION ----- */
+    .footer_blurb
+    {
+        padding: 4em 2em 1em;
     }
 }
 
