@@ -824,6 +824,12 @@ table
     line-height: 1.5em;
 }
 
+#footer i
+{
+    color: var(--primary-accent);
+    text-shadow: 0px 0px 2px var(--primary-accent), 0px 0px 4px var(--primary-accent);
+}
+
 .footer_blurb
 {
     padding: 2em 7em;
