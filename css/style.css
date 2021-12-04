@@ -725,6 +725,7 @@ table
 
 
 
+
 /* ----- CONTACT ----- */
 #contact
 {
@@ -804,7 +805,7 @@ table
 #footer h4
 {
     font-weight: 500;
-    font-size: clamp(1.15rem, 1.5vw, 2rem);
+    font-size: clamp(1.15rem, 1.65vw, 2rem);
     color: var(--secondary-header);
     line-height: 2em;
 }
@@ -819,27 +820,39 @@ table
 #footer p
 {
     font-weight: 300;
-    font-size: clamp(0.95rem, 1.15vw, 1.25rem);
+    font-size: clamp(0.95rem, 1.25vw, 1.65rem);
     color: var(--secondary-header);
     line-height: 1.5em;
 }
 
 #footer i
 {
-    color: var(--primary-accent);
-    text-shadow: 0px 0px 2px var(--primary-accent), 0px 0px 4px var(--primary-accent);
+    color: var(--primary-text);
+    font-size: clamp(1.15rem, 1.65vw, 2rem);
 }
 
 .footer_blurb
 {
-    padding: 2em 7em;
+    padding: 0em 8em 5em;
 }
 
-
+.footer_socials i
+{
+    margin: 0px 8px;
+    font-size: clamp(1.75rem, 2.5vw, 3rem) !important;
+    color: var(--primary-accent) !important;
+    text-shadow: 0px 0px 2px var(--primary-accent), 0px 0px 3px var(--primary-accent) !important;
+}
 
 .footer_remarks
 {
-    padding: 64px 0px;
+    padding: 8px 2em 64px;
+}
+
+.footer_remarks i
+{
+    color: var(--primary-accent) !important;
+    text-shadow: 0px 0px 2px var(--primary-accent), 0px 0px 4px var(--primary-accent) !important;
 }
 
 
@@ -904,7 +917,7 @@ table
     /* ----- FOOTER SECTION ----- */
     .footer_blurb
     {
-        padding: 4em 2em 1em;
+        padding: 4em 2em 5em;
     }
 }
 
