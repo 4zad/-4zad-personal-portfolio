@@ -12,6 +12,9 @@ const navLinks = document.querySelectorAll('.nav_bar > .nav_links > ul li > a');
 // console.log(sections); // test to see if `document.querySelectorAll('section')` was successful
 // console.log(navLinks); // test to see if `document.querySelectorAll('.nav_bar > .nav_links > ul li a')` was successful
 
+const sectionHeads = document.querySelectorAll('section > h1');
+// console.log(sectionHeads); // test to see if `document.querySelectorAll('section > h1')` was successful
+
 window.addEventListener('scroll', () => {
     let current = '';
     // console.log(scrollY); // 'scrollY' and 'pageYOffset' display the position of your scroll from the top of the webpage, or in otherwords how much you have scrolled
@@ -40,20 +43,6 @@ window.addEventListener('scroll', () => {
     })
 
     /* --- CODE FOR FLICKERING ANIMATION TRIGGER --- */
-    const sectionHeads = document.querySelectorAll('section > h1');
-    // console.log(sectionHeads); // test to see if `document.querySelectorAll('section > h1')` was successful
-
-    sections.forEach((section) => {
-        const currentSectionTop = section.offsetTop;
-        // console.log(currentSectionTop); // test to see if 'section.offsetTop' is returning the correct values of how far the beginning/top of each section is from the beginning/top of the webpage
-        const currentSectionHeight = section.clientHeight;
-        // console.log(currentSectionHeight); // test to see if the right height is being measured by 'section.clientHeight'
-
-        if (scrollY >= (currentSectionTop - (currentSectionHeight * 2 / 5))) {
-            current = section.getAttribute('id');
-        }
-    })
-
     sectionHeads.forEach((h1) => {
         h1.classList.remove('flicker');
 
@@ -63,6 +52,7 @@ window.addEventListener('scroll', () => {
         }
     })
 });
+
 
 
 
