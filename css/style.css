@@ -611,9 +611,9 @@ table
 {
     content: 'ABOUT';
 }
-.projects_header::before
+.work_header::before
 {
-    content: 'PROJECTS';
+    content: 'WORK';
 }
 .contact_header::before
 {
@@ -779,13 +779,13 @@ table
 
 
 
-/* ----- PROJECTS ----- */
-#projects > .container > .grid
+/* ----- WORK ----- */
+#work > .container .grid
 {
     grid-template-columns: 1fr !important;
 }
 
-#projects > .container > .grid > .row
+.work_experience > .row
 {
     display: flex;
     width: 100%;
@@ -793,12 +793,12 @@ table
     align-items: center;
 }
 
-#projects > .container > .grid > .row:nth-child(odd)
+.work_experience > .row:nth-child(odd)
 {
     flex-direction: row;
 }
 
-#projects > .container > .grid > .row:nth-child(even)
+.work_experience > .row:nth-child(even)
 {
     flex-direction: row-reverse;
 }
