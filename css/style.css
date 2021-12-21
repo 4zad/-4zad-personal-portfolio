@@ -42,7 +42,7 @@
     /* FONT & TYPOGRAPHY */
     --header-font: 'Montserrat', sans-serif;
     --body-font: 'Work Sans', sans-serif;
-    --header-clamp: clamp(1.75rem, 3.5vw, 5rem);
+    --header-clamp: clamp(1.75rem, 3.5vw, 4.5rem);
     --subheader-clamp: clamp(1.25rem, 2.5vw, 3rem);
     --form-clamp: clamp(0.8rem, 1.2vw, 2rem);
     --text-clamp: clamp(0.95rem, 1.35vw, 2rem);
@@ -646,9 +646,24 @@ table
     /* text-shadow: 0px 0px 1px var(--primary-text); */
 }
 
+#main > section
+{
+    display: inline-block;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--primary-bg);
+    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 2);
+    text-align: center;
+    align-items: center;
+}
+
 .container
 {
+    display: inline-block;
+    width: min(100%, 2160px);
     padding: var(--container-padding-y) var(--container-padding-x);
+    text-align: center;
+    align-items: center;
 }
 
 .grid
@@ -724,15 +739,6 @@ table
 
 /* NON-REUSABLE CLASSES */
 /* ----- ABOUT ----- */
-#about
-{
-    min-height: 100vh;
-    background-color: var(--primary-bg);
-    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 2);
-    text-align: center;
-    align-items: center;
-}
-
 #about > .container > .grid
 {
     grid-template-columns: 4fr 5fr !important;
@@ -766,7 +772,7 @@ table
 .about_technologies i
 {
     color: var(--primary-text);
-    font-size: var(--header-clamp);
+    font-size: var(--subheader-clamp);
     padding: 0em 0em 0em 0.25em;
     line-height: 1.5em;
 }
@@ -774,13 +780,29 @@ table
 
 
 /* ----- PROJECTS ----- */
-#projects
+#projects > .container > .grid
 {
-    min-height: 100vh;
-    background-color: var(--primary-bg);
-    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 2);
-    text-align: center;
+    grid-template-columns: 1fr !important;
 }
+
+#projects > .container > .grid > .row
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#projects > .container > .grid > .row:nth-child(odd)
+{
+    flex-direction: row;
+}
+
+#projects > .container > .grid > .row:nth-child(even)
+{
+    flex-direction: row-reverse;
+}
+
 
 
 
@@ -788,14 +810,6 @@ table
 
 
 /* ----- CONTACT ----- */
-#contact
-{
-    min-height: 100vh;
-    background-color: var(--primary-bg);
-    padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 2);
-    text-align: center;
-}
-
 #contact > .container > .grid
 {
     grid-template-columns: 2fr 3fr !important;
@@ -833,7 +847,7 @@ table
 
 .contact_links span
 {
-    flex: 7;
+    flex: 10;
     font-family: var(--body-font);
     font-size: var(--text-clamp);
     font-weight: 500;
@@ -1003,7 +1017,12 @@ table
         letter-spacing: 0.2em;
     }
 
-    #about > .container > .grid, #contact > .container > .grid
+    #projects > .container > .grid > .row 
+    {
+        flex-direction: column !important;
+    }
+
+    #about > .container > .grid, #projects > .container > .grid, #contact > .container > .grid
     {
         grid-template-columns: 1fr !important;
     }
