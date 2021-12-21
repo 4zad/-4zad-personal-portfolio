@@ -767,7 +767,7 @@ table
 {
     color: var(--primary-text);
     font-size: var(--header-clamp);
-    padding: 0em 0em 0em 0.5em;
+    padding: 0em 0em 0em 0.25em;
     line-height: 1.5em;
 }
 
