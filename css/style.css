@@ -351,7 +351,7 @@ table
     background-color: var(--secondary-bg);
     overflow: hidden !important;
     transition: 0.2s;
-    --spark-thickness: 3px;
+    --spark-thickness: 2px;
 }
 
 .neon_button:hover
@@ -728,16 +728,39 @@ table
     background-color: var(--primary-bg);
     padding: var(--section-padding-y) var(--section-padding-x) calc(var(--section-padding-y) / 2);
     text-align: center;
+    align-items: center;
 }
 
-.skills_cell 
+#about > .container > .grid
 {
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--primary-accent);
-    border-radius: var(--box-card-radius);
-    padding: 2em 1em;
-    box-shadow: 0px 0px 8px var(--primary-accent), inset 0px 0px 8px var(--primary-accent), 0px 0px 4px var(--primary-accent), inset 0px 0px 4px var(--primary-accent);
+    grid-template-columns: 3fr 4fr !important;
 }
+
+.about_image
+{
+    box-sizing: border-box;
+    overflow: hidden;
+    /* background-color: var(--primary-bg);
+    border: 4px solid var(--primary-accent);
+    border-radius: var(--box-card-radius);
+    box-shadow: 0px 0px 8px var(--primary-accent), inset 0px 0px 8px var(--primary-accent), 0px 0px 4px var(--primary-accent), inset 0px 0px 4px var(--primary-accent);
+    padding: 1em; */
+    margin-top: 1.5em;
+}
+
+.about_image > img
+{
+    max-width: 100%;
+}
+
+.about_info
+{
+    text-align: right;
+    padding-right: 2em;
+    border-right: 4px solid var(--primary-accent);
+}
+
+
 
 /* ----- PROJECTS ----- */
 #projects
@@ -773,6 +796,8 @@ table
     position: relative;
     align-items: center;
     text-align: left;
+    padding-left: 2em;
+    border-left: 5px solid var(--primary-accent);
 }
 
 .contact_links
@@ -792,7 +817,7 @@ table
 {
     flex: 1;
     font-size: clamp(1.5rem, 2.25vw, 2.75rem);
-    color: var(--secondary-text);
+    color: var(--primary-text);
 }
 
 .contact_links span
@@ -801,7 +826,7 @@ table
     font-family: var(--body-font);
     font-size: clamp(1.05rem, 1.5vw, 2.25rem);
     font-weight: 500;
-    color: var(--secondary-text);
+    color: var(--primary-text);
     line-height: 1.5em;
 }
 
@@ -819,7 +844,7 @@ table
     padding: var(--form-padding-y) var(--form-padding-x);
     box-sizing: border-box;
     background-color: var(--secondary-bg);
-    border: 0px solid var(--primary-accent);
+    border: 1px solid rgba(255, 255, 255, 0); /* transparent border so that when border is added on highlighted form box, it doesn't shift the elements around it by the width of its border */
     /* box-shadow: 0px 0px 8px var(--primary-accent), inset 0px 0px 8px var(--primary-accent); */
     border-radius: var(--form-field-radius);
     outline: none;
@@ -827,14 +852,13 @@ table
     font-size: clamp(0.8rem, 1.2vw, 2rem);
     font-weight: 500;
     color: var(--primary-text);
-    border: 1px solid rgba(255, 255, 255, 0); /* transparent border so that when border is added on highlighted form box, it doesn't shift the elements around it by the width of its border */
 }
 
 .email_form input:focus, 
 .email_form textarea:focus
 {
     border-color: var(--primary-accent) !important;
-    box-shadow: 0px 0px 8px var(--primary-accent), inset 0px 0px 8px var(--primary-accent), 0px 0px 4px var(--primary-accent), inset 0px 0px 4px var(--primary-accent); 
+    /* box-shadow: 0px 0px 8px var(--primary-accent), inset 0px 0px 8px var(--primary-accent), 0px 0px 4px var(--primary-accent), inset 0px 0px 4px var(--primary-accent); */
 }
 
 .email_form textarea
@@ -865,7 +889,7 @@ table
 #footer h4
 {
     font-weight: 500;
-    font-size: clamp(1.15rem, 1.65vw, 2rem);
+    font-size: clamp(1.05rem, 1.65vw, 2rem);
     color: var(--secondary-header);
     line-height: 1.5em;
 }
@@ -873,7 +897,7 @@ table
 #footer h5
 {
     font-weight: 300;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--primary-text);
 }
 
@@ -968,9 +992,16 @@ table
         letter-spacing: 0.2em;
     }
 
-    #contact > .container > .grid
+    #about > .container > .grid, #contact > .container > .grid
     {
         grid-template-columns: 1fr !important;
+    }
+
+    .about_info, .contact_info
+    {
+        text-align: left;
+        border: 0px;
+        padding-left: 0em;
     }
 
     /* -------------------------- */
