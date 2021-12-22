@@ -1131,7 +1131,7 @@ table
         gap: calc(var(--intra-grid-margin-y) / 2);
     }
 
-    #about > .container > .grid.about_me, #contact > .container > .grid.contact_area
+    #about > .container > .grid.about_me, #about > .container > .grid.about_skills, #contact > .container > .grid.contact_area
     {
         grid-template-columns: 1fr;
     }
