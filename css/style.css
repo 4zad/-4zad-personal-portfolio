@@ -18,7 +18,7 @@
     --secondary-bg: #282421;
     --primary-header: var(--primary-accent);
     --secondary-header: #FFFFFF;
-    --primary-text: #9D9D9D;
+    --primary-text: #b4b4b4;
     --secondary-text: var(--tertiary-accent);
 
     /* MARGINS */
@@ -43,14 +43,19 @@
     --card-radius: 0px;
     --image-radius: var(--card-radius);
 
+    /* BORDER WIDTH */
+    --accent-border-width: 4px;
+    --form-border-width: 1px;
+
     /* FONT & TYPOGRAPHY */
     --header-font: 'Montserrat', sans-serif;
     --body-font: 'Work Sans', sans-serif;
+    --monospace-font: 'Roboto Mono', monospace;
     --header-clamp: clamp(1.75rem, 3.5vw, 4.5rem);
     --subheader-clamp: clamp(1.25rem, 2.5vw, 3rem);
-    --form-clamp: clamp(0.8rem, 1.2vw, 2rem);
+    --form-clamp: clamp(0.8rem, 1.1vw, 1.8rem);
     --text-clamp: clamp(0.95rem, 1.35vw, 2rem);
-    
+    --subtext-clamp: var(--form-clamp);
 
     /* Z-INDEX */
     --z-tooltip: 5;
@@ -346,7 +351,7 @@ table
     padding: var(--form-padding-y) calc(var(--form-padding-x) * 2);
     border: 0px solid var(--primary-accent);
     border-radius: var(--button-radius);
-    font-size: clamp(0.8rem, 1.2vw, 2rem);
+    font-size: var(--form-clamp);
     font-weight: 500;
     text-transform: capitalize;
     letter-spacing: 0.4em;
@@ -596,7 +601,7 @@ table
 {
     display: block;
     font-family: var(--header-font);
-    font-weight: 800;
+    font-weight: 600;
     font-size: var(--header-clamp);
     color: var(--secondary-header);
     letter-spacing: 0.3em;
@@ -629,7 +634,7 @@ table
 #footer h3
 {
     font-family: var(--header-font);
-    font-weight: 600;
+    font-weight: 500;
     font-size: var(--subheader-clamp);
     color: var(--primary-header);
     line-height: 1.5em;
@@ -644,7 +649,7 @@ table
 {
     font-family: var(--body-font);
     font-size: var(--text-clamp);
-    font-weight: 500;
+    font-weight: 400;
     color: var(--primary-text);
     line-height: 1.5em;
     padding-bottom: 0.75em;
@@ -771,7 +776,7 @@ table
 {
     text-align: right;
     padding-right: 2em;
-    border-right: 4px solid var(--primary-accent);
+    border-right: var(--accent-border-width) solid var(--primary-accent);
 }
 
 .about_technologies i
@@ -831,16 +836,23 @@ table
 .work_projects > .grid > .row:nth-child(odd) > .projects_info
 {
     text-align: right;
+    border-right: var(--accent-border-width) solid var(--primary-accent);
     margin: 0% 0% 0% -7%;
 }
 
 .work_projects > .grid > .row:nth-child(even) > .projects_info
 {
     text-align: left;
+    border-left: var(--accent-border-width) solid var(--primary-accent);
     margin: 0% -7% 0% 0%;
 }
 
-
+.projects_tools
+{
+    font-family: var(--monospace-font) !important;
+    font-weight: 400 !important;
+    font-size: var(--subtext-clamp) !important;
+}
 
 
 
@@ -860,7 +872,7 @@ table
     align-items: center;
     text-align: left;
     padding-left: 2em;
-    border-left: 5px solid var(--primary-accent);
+    border-left: var(--accent-border-width) solid var(--primary-accent);
 }
 
 .contact_links
@@ -907,12 +919,12 @@ table
     padding: var(--form-padding-y) var(--form-padding-x);
     box-sizing: border-box;
     background-color: var(--secondary-bg);
-    border: 1px solid rgba(255, 255, 255, 0); /* transparent border so that when border is added on highlighted form box, it doesn't shift the elements around it by the width of its border */
+    border: var(--form-border-width) solid rgba(255, 255, 255, 0); /* transparent border so that when border is added on highlighted form box, it doesn't shift the elements around it by the width of its border */
     /* box-shadow: 0px 0px 8px var(--primary-accent), inset 0px 0px 8px var(--primary-accent); */
     border-radius: var(--form-field-radius);
     outline: none;
     font-family: var(--body-font);
-    font-size: clamp(0.8rem, 1.2vw, 2rem);
+    font-size: var(--form-clamp);
     font-weight: 500;
     color: var(--primary-text);
 }
@@ -952,7 +964,7 @@ table
 #footer h4
 {
     font-weight: 500;
-    font-size: clamp(1.05rem, 1.65vw, 2rem);
+    font-size: var(--text-clamp);
     color: var(--secondary-header);
     line-height: 1.5em;
 }
@@ -967,7 +979,7 @@ table
 #footer p
 {
     font-weight: 300;
-    font-size: clamp(0.95rem, 1.25vw, 1.65rem);
+    font-size: var(--subtext-clamp);
     color: var(--secondary-header);
     line-height: 1.5em;
 }
@@ -975,7 +987,7 @@ table
 #footer i
 {
     color: var(--primary-text);
-    font-size: clamp(1.15rem, 1.65vw, 2rem);
+    font-size: var(--text-clamp);
 }
 
 .footer_socials
@@ -986,7 +998,7 @@ table
 .footer_socials i
 {
     margin: 0px 12px;
-    font-size: clamp(1.75rem, 2.5vw, 3rem) !important;
+    font-size: calc(var(--text-clamp) + 8px) !important;
     color: var(--primary-accent) !important;
     /* text-shadow: 0px 0px 2px var(--primary-accent), 0px 0px 3px var(--primary-accent) !important; */
 }
@@ -1075,6 +1087,17 @@ table
     .work_projects > .grid > .row
     {
         flex-direction: column !important;
+    }
+
+    .projects_image
+    {
+        width: 100%;
+    }
+
+    .projects_info
+    {
+        width: 90%;
+        margin: -25% 0% 0% 0% !important;
     }
 
     /* -------------------------- */
