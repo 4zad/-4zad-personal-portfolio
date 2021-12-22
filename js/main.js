@@ -25,9 +25,11 @@ window.addEventListener('scroll', () => {
         // console.log(currentSectionTop); // test to see if 'section.offsetTop' is returning the correct values of how far the beginning/top of each section is from the beginning/top of the webpage
         const currentSectionHeight = section.clientHeight;
         // console.log(currentSectionHeight); // test to see if the right height is being measured by 'section.clientHeight'
+        const viewportHeight = window.innerHeight;
+        // console.log(viewportHeight); // test to see if the 'viewportHeight' variable has successfully gotten the inner height value (viewport height value) from 'window.innerHeight'
 
-        if (scrollY >= (currentSectionTop - (currentSectionHeight * 1 / 3))) {
-            // console.log(currentSectionTop - (currentSectionHeight * 2 / 5));
+        if (scrollY >= (currentSectionTop - (viewportHeight * 2 / 5))) {
+            // console.log(currentSectionTop - (viewportHeight * 2 / 5));
             current = section.getAttribute('id');
         }
     })
