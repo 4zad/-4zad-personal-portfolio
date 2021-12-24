@@ -251,16 +251,17 @@ table
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom 0% left 0%;
-    position: relative;
+    position: relative !important;
     overflow: hidden;
 }
 
 /* REUSABLE CLASSES */
-.intro_keyword
+.intro_desc span.intro_keyword
 {
     white-space: nowrap !important;
-    font-weight: 600 !important;
-    color: var(--secondary-header) !important;
+    font-weight: 600;
+    color: var(--secondary-header);
+    position: relative !important;
 }
 
 /* 3D Hover to Expand Animation */
@@ -480,7 +481,7 @@ table
 {
     font-family: 'Major Mono Display', monospace;
     font-size: clamp(1.75rem, 4vw, 6.5rem);
-    position: relative;
+    position: relative !important;
     line-height: 1.25em;
 }
 
@@ -612,7 +613,7 @@ table
     color: var(--primary-header);
     letter-spacing: 0.3em;
     line-height: 1.5em;
-    position: relative;
+    position: relative !important;
 }
 
 #main section > h1::before, 
@@ -826,7 +827,7 @@ table
     background-color: var(--secondary-bg);
     padding: var(--subcontainer-padding-y) var(--subcontainer-padding-x);
     text-align: center;
-    position: relative;
+    position: relative !important;
     overflow: hidden;
 }
 .skills_box:nth-child(1)
@@ -903,6 +904,7 @@ table
     align-items: center;
     width: 100%;
     margin: 0 auto;
+    position: relative !important;
 }
 .grid.work_projects > .row:nth-child(odd)
 {
@@ -923,6 +925,7 @@ table
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    position: relative;
 }
  .row:nth-child(1) > .projects_image
 {
