@@ -16,6 +16,7 @@
     --tertiary-accent: #8E6448;
     --primary-bg: #1D1D1D;
     --secondary-bg: #282421;
+    --tertiary-bg: #43342B;
     --primary-header: var(--primary-accent);
     --secondary-header: #FFFFFF;
     --primary-text: #b4b4b4;
@@ -55,8 +56,8 @@
     --header-font: 'Montserrat', sans-serif;
     --body-font: 'Work Sans', sans-serif;
     --monospace-font: 'Roboto Mono', monospace;
-    --header-clamp: clamp(1.75rem, 3.5vw, 4.5rem);
-    --subheader-clamp: clamp(1.3rem, 2.5vw, 3rem);
+    --header-clamp: clamp(2rem, 3.5vw, 4.5rem);
+    --subheader-clamp: clamp(1.5rem, 2.5vw, 3rem);
     --form-clamp: clamp(0.8rem, 1.1vw, 1.5rem);
     --text-clamp: clamp(0.95rem, 1.35vw, 1.75rem);
     --subtext-clamp: var(--form-clamp);
@@ -467,7 +468,7 @@ table
     position: absolute;
     text-align: left;
     width: max(350px,50%);
-    top: 75%;
+    top: 70%;
     transform: translateY(-50%);
     padding-left: 5%;
 }
@@ -480,7 +481,7 @@ table
 .intro_greeting p
 {
     font-family: 'Major Mono Display', monospace;
-    font-size: clamp(1.75rem, 4vw, 6.5rem);
+    font-size: clamp(1.9rem, 4vw, 6.5rem);
     position: relative !important;
     line-height: 1.25em;
 }
@@ -556,7 +557,7 @@ table
 .intro_desc p, .intro_desc span
 {
     font-family: var(--header-font);
-    font-size: clamp(1rem, 2vw, 3rem);
+    font-size: clamp(1.2rem, 2vw, 3rem);
     color: var(--primary-text);
     font-weight: 500;
     line-height: 1.5em;
@@ -604,7 +605,7 @@ table
 
 /* REUSABLE CLASSES */
 #main h1,
-#footer h1
+#footer section h1
 {
     display: block;
     font-family: var(--header-font);
@@ -639,7 +640,7 @@ table
 }
 
 #main h3,
-#footer h3
+#footer section h3
 {
     font-family: var(--header-font);
     font-weight: 500;
@@ -651,7 +652,7 @@ table
 }
 
 #main h4,
-#footer h4
+#footer section h4
 {
     font-family: var(--header-font);
     font-weight: 500;
@@ -664,8 +665,8 @@ table
 
 #main p,
 #main li,
-#footer p,
-#footer li
+#footer section p,
+#footer section li
 {
     font-family: var(--body-font);
     font-size: var(--text-clamp);
@@ -678,8 +679,8 @@ table
 
 #main p.subtext,
 #main li.subtext,
-#footer p.subtext,
-#footer li.subtext
+#footer section p.subtext,
+#footer section li.subtext
 {
     font-family: var(--monospace-font);
     font-size: 400;
@@ -781,7 +782,7 @@ table
 /* ----- ABOUT ----- */
 #about > .container > .grid.about_me
 {
-    grid-template-columns: 2fr 5fr;
+    grid-template-columns: 1fr 2fr;
     margin-bottom: var(--inter-grid-margin-y);
 }
 
@@ -877,17 +878,19 @@ table
     position: relative;
     top: 50%;
     transform: translateY(-50%); /* alternatively, 'transform: translate(0%, -50%)' may be used here as 0% being the x-axis translation and -50% being the y-axis translation*/
+    font-weight: 600 !important;
+    letter-spacing: 0.2em;
 }
 
 .skills_box > h4
 {
-    color: var(--primary-header) !important;
     display: block;
     position: absolute;
     word-wrap: none;
     bottom: -10px;
     left: 10px;
     /* transform: rotate(-90deg); */
+    color: var(--primary-header) !important;
 }
 
 .skills_box:nth-child(1)
@@ -898,7 +901,7 @@ table
     background-repeat: no-repeat;
 }
 
-.skills_asset
+.skills_item
 {
     display: inline-block;
     width: fit-content;
@@ -906,19 +909,25 @@ table
     position: relative;
 }
 
-.skills_asset i
+.skills_item i
 {
     color: var(--primary-accent);
     font-size: var(--subheader-clamp);
     text-align: center;
 }
 
-.skills_asset p.subtext.label
+#main .skills_item p.subtext.label
 {
-    color: var(--primary-accent) !important;
+    color: var(--primary-accent);
 }
 
-.skills_assets_list
+.skills_carousel
+{
+    width: 100%;
+    height: 100%;
+}
+
+.skills_list
 {
     display: flex;
     justify-content: space-between;
@@ -926,41 +935,39 @@ table
     width: 100%;
     height: 90%;
 }
-.grid.about_skills > .skills_box:nth-child(3) > .skills_assets_list,
-.grid.about_skills > .skills_box:nth-child(6) > .skills_assets_list
+.skills_box:nth-child(3) > .skills_carousel > .skills_list,
+.skills_box:nth-child(6) > .skills_carousel > .skills_list
 {
     flex-direction: column;
 }
-.grid.about_skills > .skills_box:nth-child(2) > .skills_assets_list,
-.grid.about_skills > .skills_box:nth-child(4) > .skills_assets_list,
-.grid.about_skills > .skills_box:nth-child(5) > .skills_assets_list
+.skills_box:nth-child(2) > .skills_carousel > .skills_list,
+.skills_box:nth-child(4) > .skills_carousel > .skills_list,
+.skills_box:nth-child(5) > .skills_carousel > .skills_list
 {
     flex-direction: row;
 }
-.grid.about_skills > .skills_box:nth-child(6) > .skills_assets_list > .skills_asset:nth-child(odd),
-.grid.about_skills > .skills_box:nth-child(3) > .skills_assets_list > .skills_asset:nth-child(odd)
+.skills_box:nth-child(6) > .skills_carousel > .skills_list > .skills_item:nth-child(odd),
+.skills_box:nth-child(3) > .skills_carousel > .skills_list > .skills_item:nth-child(odd)
 {
     align-self: flex-start;
 }
-.grid.about_skills > .skills_box:nth-child(6) > .skills_assets_list > .skills_asset:nth-child(even),
-.grid.about_skills > .skills_box:nth-child(3) > .skills_assets_list > .skills_asset:nth-child(even)
+.skills_box:nth-child(6) > .skills_carousel > .skills_list > .skills_item:nth-child(even),
+.skills_box:nth-child(3) > .skills_carousel > .skills_list > .skills_item:nth-child(even)
 {
     align-self: flex-end;
 }
-.grid.about_skills > .skills_box:nth-child(2) > .skills_assets_list > .skills_asset:nth-child(odd),
-.grid.about_skills > .skills_box:nth-child(4) > .skills_assets_list > .skills_asset:nth-child(odd),
-.grid.about_skills > .skills_box:nth-child(5) > .skills_assets_list > .skills_asset:nth-child(odd)
+.skills_box:nth-child(2) > .skills_carousel > .skills_list > .skills_item:nth-child(odd),
+.skills_box:nth-child(4) > .skills_carousel > .skills_list > .skills_item:nth-child(odd),
+.skills_box:nth-child(5) > .skills_carousel > .skills_list > .skills_item:nth-child(odd)
 {
     align-self: flex-start;
 }
-.grid.about_skills > .skills_box:nth-child(2) > .skills_assets_list > .skills_asset:nth-child(even),
-.grid.about_skills > .skills_box:nth-child(4) > .skills_assets_list > .skills_asset:nth-child(even),
-.grid.about_skills > .skills_box:nth-child(5) > .skills_assets_list > .skills_asset:nth-child(even)
+.skills_box:nth-child(2) > .skills_carousel > .skills_list > .skills_item:nth-child(even),
+.skills_box:nth-child(4) > .skills_carousel > .skills_list > .skills_item:nth-child(even),
+.skills_box:nth-child(5) > .skills_carousel > .skills_list > .skills_item:nth-child(even)
 {
     align-self: flex-end;
 }
-
-
 
 
 
@@ -1214,11 +1221,11 @@ table
     padding: 0em 10em 1em;
 }
 
-.footer_socials i
+#footer .footer_socials i
 {
     margin: 0px 12px;
-    font-size: calc(var(--text-clamp) + 8px) !important;
-    color: var(--primary-accent) !important;
+    font-size: calc(var(--text-clamp) + 8px);
+    color: var(--primary-accent);
     /* text-shadow: 0px 0px 2px var(--primary-accent), 0px 0px 3px var(--primary-accent) !important; */
 }
 
@@ -1227,10 +1234,10 @@ table
     padding: 8px 2em 64px;
 }
 
-.footer_remarks i
+#footer .footer_remarks i
 {
-    color: var(--primary-accent) !important;
-    text-shadow: 0px 0px 2px var(--primary-accent), 0px 0px 4px var(--primary-accent) !important;
+    color: var(--primary-accent);
+    text-shadow: 0px 0px 2px var(--primary-accent), 0px 0px 4px var(--primary-accent);
 }
 
 
@@ -1272,7 +1279,7 @@ table
     .nav_links > ul > li > a
     {
         font-weight: 500;
-        font-size: 11px;
+        font-size: 12px;
         letter-spacing: 0.4em;
         padding: 24px 6px 6px;
         transition: 0.5s ease-out;
@@ -1440,6 +1447,8 @@ table
         background-position: bottom 0% left 20%;
     }
 }
+
+
 
 
 
