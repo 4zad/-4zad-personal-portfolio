@@ -593,7 +593,7 @@ table
 .hero_socials i:focus
 {
     text-shadow: 0px 0px 2px var(--primary-accent), 0px 0px 4px var(--primary-accent);
-    /* text-shadow: 0px 4px 12px var(--primary-accent); 
+    /* text-shadow: 0px 4px 12px var(--primary-accent);
     transform: scale(1.1); */
 }
 
@@ -603,7 +603,7 @@ table
 /* ----- MAIN SECTION ----- */
 
 /* REUSABLE CLASSES */
-#main h1, 
+#main h1,
 #footer h1
 {
     display: block;
@@ -616,7 +616,7 @@ table
     position: relative !important;
 }
 
-#main section > h1::before, 
+#main section > h1::before,
 #footer section > h1::before
 {
     position: absolute !important;
@@ -662,7 +662,7 @@ table
     /* text-shadow: 0px 0px 2px var(--primary-accent); */
 }
 
-#main p, 
+#main p,
 #main li,
 #footer p,
 #footer li
@@ -714,7 +714,7 @@ table
 }
 
 /* Neon Lights Flicker Animation */
-.flicker::before 
+.flicker::before
 {
     position: absolute !important;
     text-shadow: 0px 0px 4px var(--secondary-header);
@@ -742,7 +742,7 @@ table
 } */
 
 /* Key Frames (Definition) for 'flicker' infinite iteration animation (7s-10s duration required; based on preference) */
-/* @keyframes flicker 
+/* @keyframes flicker
 {
   0% { filter: blur(5px) brightness(1); }
   1% { filter: blur(5px) brightness(0); }
@@ -759,7 +759,7 @@ table
 /* -------------------------------------------------------- */
 
 /* Key Frames (Definition) for 'flicker' animation */
-@keyframes flicker 
+@keyframes flicker
 {
   0% { filter: blur(5px) brightness(1); }
   3% { filter: blur(5px) brightness(0); }
@@ -871,13 +871,23 @@ table
     grid-row: 1 / 3;
 }
 
-.skills_box > h3, 
-.skills_box > h4
+.skills_box > h3
 {
     display: block;
     position: relative;
     top: 50%;
     transform: translateY(-50%); /* alternatively, 'transform: translate(0%, -50%)' may be used here as 0% being the x-axis translation and -50% being the y-axis translation*/
+}
+
+.skills_box > h4
+{
+    color: var(--primary-header) !important;
+    display: block;
+    position: absolute;
+    word-wrap: none;
+    bottom: -10px;
+    left: 10px;
+    /* transform: rotate(-90deg); */
 }
 
 .skills_box:nth-child(1)
@@ -890,9 +900,64 @@ table
 
 .skills_asset
 {
+    display: inline-block;
     width: fit-content;
     height: fit-content;
     position: relative;
+}
+
+.skills_asset i
+{
+    color: var(--primary-accent);
+    font-size: var(--subheader-clamp);
+    text-align: center;
+}
+
+.skills_asset p.subtext.label
+{
+    color: var(--primary-accent) !important;
+}
+
+.skills_assets_list
+{
+    display: flex;
+    justify-content: space-between;
+    gap: 0em;
+    width: 100%;
+    height: 90%;
+}
+.grid.about_skills > .skills_box:nth-child(3) > .skills_assets_list,
+.grid.about_skills > .skills_box:nth-child(6) > .skills_assets_list
+{
+    flex-direction: column;
+}
+.grid.about_skills > .skills_box:nth-child(2) > .skills_assets_list,
+.grid.about_skills > .skills_box:nth-child(4) > .skills_assets_list,
+.grid.about_skills > .skills_box:nth-child(5) > .skills_assets_list
+{
+    flex-direction: row;
+}
+.grid.about_skills > .skills_box:nth-child(6) > .skills_assets_list > .skills_asset:nth-child(odd),
+.grid.about_skills > .skills_box:nth-child(3) > .skills_assets_list > .skills_asset:nth-child(odd)
+{
+    align-self: flex-start;
+}
+.grid.about_skills > .skills_box:nth-child(6) > .skills_assets_list > .skills_asset:nth-child(even),
+.grid.about_skills > .skills_box:nth-child(3) > .skills_assets_list > .skills_asset:nth-child(even)
+{
+    align-self: flex-end;
+}
+.grid.about_skills > .skills_box:nth-child(2) > .skills_assets_list > .skills_asset:nth-child(odd),
+.grid.about_skills > .skills_box:nth-child(4) > .skills_assets_list > .skills_asset:nth-child(odd),
+.grid.about_skills > .skills_box:nth-child(5) > .skills_assets_list > .skills_asset:nth-child(odd)
+{
+    align-self: flex-start;
+}
+.grid.about_skills > .skills_box:nth-child(2) > .skills_assets_list > .skills_asset:nth-child(even),
+.grid.about_skills > .skills_box:nth-child(4) > .skills_assets_list > .skills_asset:nth-child(even),
+.grid.about_skills > .skills_box:nth-child(5) > .skills_assets_list > .skills_asset:nth-child(even)
+{
+    align-self: flex-end;
 }
 
 
@@ -938,7 +1003,7 @@ table
  .row:nth-child(1) > .projects_image
 {
     background-image: url(../img/delmoure-college-mockup.jpg);
-} 
+}
 .row:nth-child(2) > .projects_image
 {
     background-image: url(../img/form-validation-mockup.jpg);
@@ -1018,7 +1083,7 @@ table
     grid-template-columns: 2fr 3fr;
 }
 
-.contact_info 
+.contact_info
 {
     box-sizing: border-box;
     position: relative;
@@ -1058,14 +1123,14 @@ table
     line-height: 2em;
 }
 
-.contact_links a:hover > span, 
+.contact_links a:hover > span,
 .contact_links a:hover > i
 {
     color: var(--primary-accent) !important;
     /* text-shadow: 0px 0px 4px var(--primary-accent), 0px 0px 8px var(--primary-accent); */
 }
 
-.email_form input, 
+.email_form input,
 .email_form textarea
 {
     width: 100%;
@@ -1083,7 +1148,7 @@ table
     color: var(--primary-text);
 }
 
-.email_form input:focus, 
+.email_form input:focus,
 .email_form textarea:focus
 {
     border-color: var(--primary-accent) !important;
@@ -1230,7 +1295,7 @@ table
     }
 
 
-    
+
     /* ------------------------ */
     /* ----- MAIN SECTION ----- */
     .container
@@ -1245,8 +1310,8 @@ table
     }
 
     /* ----- ABOUT ----- */
-    #about > .container > .grid.about_me, 
-    #about > .container > .grid.about_skills, 
+    #about > .container > .grid.about_me,
+    #about > .container > .grid.about_skills,
     #contact > .container > .grid.contact_area
     {
         grid-template-columns: 1fr;
@@ -1255,9 +1320,10 @@ table
     #about > .container > .grid.about_skills
     {
         grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 12em;
         gap: calc(var(--intra-grid-margin-x) / 4);
     }
-    
+
     .about_info, .contact_info
     {
         text-align: left;
@@ -1266,9 +1332,9 @@ table
         /* padding: var(--subcontainer-padding-y) var(--subcontainer-padding-x); */
     }
 
-    .skills_box
+    .skills_box, .projects_info
     {
-        padding: var(--subcontainer-padding-y) var(--subcontainer-padding-x);
+        padding: calc(var(--subcontainer-padding-y) * 2 / 3) calc(var(--subcontainer-padding-x) * 2 / 3);
     }
     .skills_box:nth-child(1)
     {
