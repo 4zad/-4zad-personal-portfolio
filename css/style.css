@@ -27,7 +27,7 @@
     --inter-grid-margin-x: 0em;
     --inter-grid-margin-y: 7em;
     --intra-grid-margin-x: 4em;
-    --intra-grid-margin-y: 6em;
+    --intra-grid-margin-y: 7em;
 
     /* PADDING */
     --section-padding-x: 0%;
@@ -249,6 +249,7 @@ table
     The values 'to top', 'to bottom', 'to left', and 'to right' are equivalent to the angles '0deg', '180deg', '270deg', and '90deg', respectively. The other values are translated into an angle. */
     background-color: var(--primary-bg);
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: bottom 0% left 0%;
     position: relative;
     overflow: hidden;
@@ -614,7 +615,8 @@ table
     position: relative;
 }
 
-#main section > h1::before, #footer section > h1::before
+#main section > h1::before, 
+#footer section > h1::before
 {
     position: absolute !important;
     text-shadow: 0px 0px 4px var(--primary-header);
@@ -652,7 +654,7 @@ table
 {
     font-family: var(--header-font);
     font-weight: 500;
-    font-size: calc(var(--text-clamp) + 8px);
+    font-size: calc(var(--text-clamp) + 4px);
     color: var(--secondary-header);
     line-height: 1.5em;
     padding-bottom: 0.5em;
@@ -865,7 +867,8 @@ table
     position: relative;
 }
 
-.skills_box > h3, .skills_box > h4
+.skills_box > h3, 
+.skills_box > h4
 {
     display: block;
     position: relative;
@@ -878,7 +881,11 @@ table
     background-image: url(../img/skillset-bg.png);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
+
+
+
 
 
 
@@ -910,9 +917,28 @@ table
 {
     width: 57%;
     height: 500px;
-    background: url(../img/filler_image.jpg) no-repeat center / cover;
     border-radius: var(--image-radius);
+    /* background: url(../img/example_image.jpg) no-repeat center / cover; */
+    /* background: background-image | background-repeat | background-position / background-size */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
+ .row:nth-child(1) > .projects_image
+{
+    background-image: url(../img/delmoure-college-mockup.jpg);
+} 
+.row:nth-child(2) > .projects_image
+{
+    background-image: url(../img/form-validation-mockup.jpg);
+}
+
+/* .projects_image > img
+{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+} */
 
 .projects_info
 {
@@ -929,13 +955,13 @@ table
 {
     text-align: right;
     border-right: var(--accent-border-width) solid var(--primary-accent);
-    margin: 0% 0% 0% -7%;
+    margin: 0% 0% -7% -7%;
 }
 .grid.work_projects > .row:nth-child(even) > .projects_info
 {
     text-align: left;
     border-left: var(--accent-border-width) solid var(--primary-accent);
-    margin: 0% -7% 0% 0%;
+    margin: 0% -7% -7% 0%;
 }
 
 .projects_tools
@@ -949,7 +975,7 @@ table
 {
     display: flex;
     align-items: center;
-    padding-top: 1.5em;
+    padding-top: 1em;
 }
 .grid.work_projects > .row:nth-child(odd) .projects_links
 {
@@ -960,26 +986,25 @@ table
     justify-content: left;
 }
 
-.grid.work_projects > .row:nth-child(odd) .projects_links i
+.grid.work_projects > .row:nth-child(odd) .projects_links a
 {
-    padding-left: 1em;
+    margin-left: 1em;
 }
-.grid.work_projects > .row:nth-child(even) .projects_links i
+.grid.work_projects > .row:nth-child(even) .projects_links a
 {
-    padding-right: 1em;
+    margin-right: 1em;
 }
 .projects_links i
 {
     font-size: calc(var(--subtext-clamp) + 8px);
     color: var(--secondary-header);
+    padding: 0.25em 0.25em;
 }
 
 .projects_links a:hover > i
 {
     color: var(--primary-accent);
 }
-
-
 
 
 
@@ -1036,7 +1061,8 @@ table
     /* text-shadow: 0px 0px 4px var(--primary-accent), 0px 0px 8px var(--primary-accent); */
 }
 
-.email_form input, .email_form textarea
+.email_form input, 
+.email_form textarea
 {
     width: 100%;
     margin: 0px 0px 1.5rem;
@@ -1151,6 +1177,17 @@ table
     {
         background-position: bottom 0% left 25%;
     }
+
+
+
+    /* ------------------------ */
+    /* ----- MAIN SECTION ----- */
+
+    /* ----- ABOUT ----- */
+    .projects_image
+    {
+        height: 400px;
+    }
 }
 
 @media(max-width: 768px)
@@ -1188,6 +1225,8 @@ table
         letter-spacing: 0.2em;
     }
 
+
+    
     /* ------------------------ */
     /* ----- MAIN SECTION ----- */
     .container
@@ -1202,7 +1241,9 @@ table
     }
 
     /* ----- ABOUT ----- */
-    #about > .container > .grid.about_me, #about > .container > .grid.about_skills, #contact > .container > .grid.contact_area
+    #about > .container > .grid.about_me, 
+    #about > .container > .grid.about_skills, 
+    #contact > .container > .grid.contact_area
     {
         grid-template-columns: 1fr;
     }
@@ -1211,6 +1252,14 @@ table
     {
         grid-template-columns: repeat(2, 1fr);
         gap: calc(var(--intra-grid-margin-x) / 4);
+    }
+    
+    .about_info, .contact_info
+    {
+        text-align: left;
+        border: calc(var(--accent-border-width) * 0) solid var(--primary-accent);
+        padding: 0;
+        /* padding: var(--subcontainer-padding-y) var(--subcontainer-padding-x); */
     }
 
     .skills_box
@@ -1248,13 +1297,14 @@ table
         grid-row: 3 / 5;
     }
 
-    .about_info, .contact_info
+    /* .skills_box:nth-child(2) > h4,
+    .skills_box:nth-child(3) > h4,
+    .skills_box:nth-child(4) > h4,
+    .skills_box:nth-child(6) > h4
     {
-        text-align: left;
-        border: calc(var(--accent-border-width) * 0) solid var(--primary-accent);
-        padding: 0;
-        /* padding: var(--subcontainer-padding-y) var(--subcontainer-padding-x); */
-    }
+        white-space: nowrap !important;
+        transform: rotate(-90deg) translateX(25%);
+    } */
 
     /* ----- WORK ----- */
     .grid.work_projects > .row
@@ -1266,6 +1316,7 @@ table
     .projects_image
     {
         width: 95%;
+        height: 500px;
     }
     .grid.work_projects > .row:nth-child(odd) > .projects_image
     {
@@ -1290,6 +1341,7 @@ table
     }
 
 
+
     /* -------------------------- */
     /* ----- FOOTER SECTION ----- */
     .footer_socials
@@ -1300,6 +1352,17 @@ table
 
 @media(max-width: 576px)
 {
+    /* ------------------------ */
+    /* ----- MAIN SECTION ----- */
+
+    /* ----- ABOUT ----- */
+    .projects_image
+    {
+        height: 350px;
+    }
+
+
+
     /* ----------------------- */
     /* ----- HERO BANNER ----- */
     #header
@@ -1307,5 +1370,6 @@ table
         background-position: bottom 0% left 20%;
     }
 }
+
 
 
