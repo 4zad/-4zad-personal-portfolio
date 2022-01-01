@@ -1015,6 +1015,10 @@ table
 {
     background-image: url(../img/form-validation-mockup.jpg);
 }
+.row:nth-child(3) > .projects_image
+{
+    background-image: url(../img/c-programs-mockup.jpg);
+}
 
 /* .projects_image > img
 {
@@ -1447,8 +1451,6 @@ table
         background-position: bottom 0% left 20%;
     }
 }
-
-
 
 
 
