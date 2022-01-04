@@ -1,7 +1,5 @@
 # Personal Portfolio
 
-**Version 1.0.0**
-
 ## Table of Contents
 [Description](#Description)\
 [Technologies](#Technologies)\
