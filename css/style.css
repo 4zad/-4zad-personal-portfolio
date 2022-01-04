@@ -1017,11 +1017,11 @@ table
 }
 .row:nth-child(3) > .projects_image
 {
-    background-image: url(../img/c-programs-mockup.jpg);
+    background-image: url(../img/hospital-patient-system-mockup.jpg);
 }
 .row:nth-child(4) > .projects_image
 {
-    background-image: url(../img/hospital-patient-system-mockup.jpg);
+    background-image: url(../img/c-programs-mockup.jpg);
 }
 
 /* .projects_image > img
@@ -1455,6 +1455,7 @@ table
         background-position: bottom 0% left 20%;
     }
 }
+
 
 
 
