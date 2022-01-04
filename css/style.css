@@ -283,7 +283,6 @@ table
     transition: 1s ease;
 } */
 .intro_keyword::before {
-    content: "DESIGNER";
     position: absolute;
     color: var(--tertiary-accent);
     z-index: -1;
@@ -294,9 +293,9 @@ table
 {
     content: "DESIGNER";
 }
-.intro_keyword.front_end::before
+.intro_keyword.developer::before
 {
-    content: "FRONT END DEVELOPER";
+    content: "DEVELOPER";
 }
 .intro_keyword.user_experience::before
 {
@@ -331,9 +330,9 @@ table
 {
     content: "DESIGNER";
 }
-.intro_keyword.front_end::after
+.intro_keyword.developer::after
 {
-    content: "FRONT END DEVELOPER";
+    content: "DEVELOPER";
 }
 .intro_keyword.user_experience::after
 {
@@ -1455,8 +1454,6 @@ table
         background-position: bottom 0% left 20%;
     }
 }
-
-
 
 
 
