@@ -12,7 +12,9 @@
 ---
 ## Description
 
- 
+As the name implies, this is my personal portfolio/website. Fully responsive, built using HTML, CSS, JavaScript, and cluttered with interactive, self-made, custom CSS animations. It includes a little bit about me, my projects, past experiences, and has been curated to really mirror my vibrant, yet quiet, personality.
+
+
 
 #### Inspiration
 
@@ -30,16 +32,17 @@ The creation of this site involved the use of various technologies, including:
 - HTML5 (HyperText Markup Language)
 - CSS (Cascading Style Sheets)
 - JS (JavaScript)
-- PHP (Hypertext Preprocessor)
 - Bootstrap v5.0 
 - Adobe Illustrator
 - Adobe Photoshop
 
-It involved the use of various plugins as well, including:
+It involved the use of various plugins and APIs as well, including:
 
 - Google Fonts
 - Google Maps
 - Font Awesome 6
+- Unicons
+- DevIcons
 - FormSubmit
 
 
