@@ -251,7 +251,7 @@ table
     background-color: var(--primary-bg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: bottom 0% left 0%;
+    background-position: bottom 0% left 100px;
     position: relative !important;
     overflow: hidden;
 }
@@ -1006,19 +1006,23 @@ table
     background-size: cover;
     position: relative;
 }
- .row:nth-child(1) > .projects_image
+.row:nth-last-child(5) > .projects_image
+{
+    background-image: url(../img/story-of-icarus-mockup.jpg);
+}
+.row:nth-last-child(4) > .projects_image
 {
     background-image: url(../img/delmoure-college-mockup.jpg);
 }
-.row:nth-child(2) > .projects_image
+.row:nth-last-child(3) > .projects_image
 {
     background-image: url(../img/form-validation-mockup.jpg);
 }
-.row:nth-child(3) > .projects_image
+.row:nth-last-child(2) > .projects_image
 {
     background-image: url(../img/hospital-patient-system-mockup.jpg);
 }
-.row:nth-child(4) > .projects_image
+.row:nth-last-child(1) > .projects_image
 {
     background-image: url(../img/c-programs-mockup.jpg);
 }
