@@ -906,11 +906,11 @@ table
     display: flex;
     flex-direction: column;
     /* justify-content: space-evenly; */
-    height: 100%;
-    right: 0; 
-    top: 0;
-    /* margin: 0 10px 0 auto; */
-    padding-right: 0 10px auto auto;
+    /* height: 100%; */
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    margin-right: 16px;
 }
 
 .skills_carouselButton--selected
@@ -920,22 +920,26 @@ table
 
 .skills_carouselButton
 {
-    display: block;
-    width: 10px;
-    height: 10px;
+    display: inline-block;
+    width: calc(var(--subtext-clamp) * 3 / 4);
+    height: calc(var(--subtext-clamp) * 3 / 4);
     border-radius: 50%;
     background: var(--tertiary-accent);
-    margin: 4px 0px;
+    margin: 6px 0px;
     cursor: pointer;
 }
 
 .skills_item--selected
 {
-    display: block !important;
+    display: inline-block !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
 }
 
 .skills_item
 {
+    position: absolute;
     display: none;
 }
 
@@ -960,9 +964,21 @@ table
 .skills_list
 {
     position: relative;
+    height: 100%;
+    width: 100%;
 }
 
 /*
+// old code that was replaced for its respective classes
+
+.skills_item
+{
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+
 .skills_list
 {
     display: flex;
