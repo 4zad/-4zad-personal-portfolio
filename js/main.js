@@ -57,6 +57,38 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
   });
 
+  /* --- CODE FOR CAROUSEL FUNCTIONALITY --- */
+  document.querySelectorAll('.skills_carousel').forEach((carousel) => {
+    const items = carousel.querySelectorAll('.skills_list > .skills_item');
+    const buttonsHtml = Array.from(items, () => {
+      return `<span class="skills_carouselButton"></span>`;
+    });
+
+    carousel.insertAdjacentHTML(
+      'beforeend',
+      `<div class="skills_carouselNav">
+         ${buttonsHtml.join('')}
+      </div>`
+    );
+
+    const buttons = carousel.querySelectorAll('.skills_carouselNav > .skills_carouselButton');
+
+    buttons.forEach((button, i) => {
+      button.addEventListener('click', () => {
+        // de-select all the items
+        items.forEach((item) => item.classList.remove('skills_item--selected'));
+        buttons.forEach((button) => button.classList.remove('skills_carouselButton--selected'));
+
+        items[i].classList.add('skills_item--selected');
+        button.classList.add('skills_carouselButton--selected');
+      });
+    });
+
+    // Select the first item on page load
+    items[0].classList.add('skills_item--selected');
+    buttons[0].classList.add('skills_carouselButton--selected');
+  });
+
   /* --- CODE FOR INSERTING CURRENT COPYRIGHT YEAR --- */
   document.querySelector('#copyright_year').innerHTML = new Date().getFullYear();
 });
