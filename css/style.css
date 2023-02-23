@@ -900,7 +900,14 @@ table
     background-repeat: no-repeat;
 }
 
-.skills_carouselNav
+.skills_carousel
+{
+    width: 100%;
+    height: 100%;
+}
+
+.skills_box:nth-child(3) .skills_carouselNav,
+.skills_box:nth-child(6) .skills_carouselNav
 {
     position: absolute;
     display: flex;
@@ -912,10 +919,24 @@ table
     right: 0;
     margin-right: 16px;
 }
+.skills_box:nth-child(2) .skills_carouselNav,
+.skills_box:nth-child(4) .skills_carouselNav,
+.skills_box:nth-child(5) .skills_carouselNav
+{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+    /* height: 100%; */
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    margin-top: 16px;
+}
 
 .skills_carouselButton--selected
 {
-    background: var(--primary-accent) !important;
+    opacity: 1 !important;
 }
 
 .skills_carouselButton
@@ -924,23 +945,107 @@ table
     width: calc(var(--subtext-clamp) * 3 / 4);
     height: calc(var(--subtext-clamp) * 3 / 4);
     border-radius: 50%;
-    background: var(--tertiary-accent);
-    margin: 6px 0px;
+    background: var(--primary-accent);
+    opacity: 0.3;
+    margin: 6px;
     cursor: pointer;
 }
 
+/*
+@keyframes carousel-animate-vertical {
+    0% {   
+      transform: translateY(100%) scale(0.5);
+      opacity: 0;
+      visibility: hidden;
+    }
+    3%,
+    {(100 / 9)}% {
+      transform: translateY(100%) scale(0.7);
+      opacity: .4;
+      visibility: visible;
+    }
+    {(100 / 9) + 3}%,
+    {(100 / 9) * 2}% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+    {(100 / 9) * 2 + 3}%,
+    {$animation-steps-fraction * 3}% {
+      transform: translateY(-100%) scale(0.7);
+      opacity: .4;
+      visibility: visible;
+    }
+    {(100 / 9) * 3 + 3}% {
+      transform: translateY(-100%) scale(0.5);
+      opacity: 0;
+      visibility: visible;
+    }
+    100% {
+      transform: translateY(-100%) scale(0.5);
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  */
+
+.skills_list
+{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.skills_box:nth-child(2) .skills_item--before,
+.skills_box:nth-child(4) .skills_item--before,
+.skills_box:nth-child(2) .skills_item--after,
+.skills_box:nth-child(4) .skills_item--after,
+.skills_item
+{
+    display: none;
+    position: absolute;
+}
+.skills_box:nth-child(3) .skills_item--before,
+.skills_box:nth-child(6) .skills_item--before
+{
+    display: inline-block !important;
+    opacity: 0.3;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.6);  
+}
+.skills_box:nth-child(5) .skills_item--before
+{
+    display: inline-block !important;
+    opacity: 0.3;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%) scale(0.6);
+}
 .skills_item--selected
 {
     display: inline-block !important;
+    display: visible !important;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.25);
+    transform: translate(-50%, -50%) scale(1.1);
 }
-
-.skills_item
+.skills_box:nth-child(3) .skills_item--after,
+.skills_box:nth-child(6) .skills_item--after
 {
-    position: absolute;
-    display: none;
+    display: inline-block !important;
+    opacity: 0.3;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.6); 
+}
+.skills_box:nth-child(5) .skills_item--after
+{
+    display: inline-block !important;
+    opacity: 0.3;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%) scale(0.6);
 }
 
 .skills_item i
@@ -953,19 +1058,6 @@ table
 #main .skills_item p.subtext.label
 {
     color: var(--primary-accent);
-}
-
-.skills_carousel
-{
-    width: 100%;
-    height: 100%;
-}
-
-.skills_list
-{
-    position: relative;
-    height: 100%;
-    width: 100%;
 }
 
 /*

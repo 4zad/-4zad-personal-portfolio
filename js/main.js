@@ -71,22 +71,42 @@ document.addEventListener('DOMContentLoaded', (event) => {
       </div>`
     );
 
+    // Creating onClick event listeners for each button in each carousel
     const buttons = carousel.querySelectorAll('.skills_carouselNav > .skills_carouselButton');
 
     buttons.forEach((button, i) => {
       button.addEventListener('click', () => {
         // de-select all the items
+        items.forEach((item) => item.classList.remove('skills_item--before'));
         items.forEach((item) => item.classList.remove('skills_item--selected'));
+        items.forEach((item) => item.classList.remove('skills_item--after'));
         buttons.forEach((button) => button.classList.remove('skills_carouselButton--selected'));
 
-        items[i].classList.add('skills_item--selected');
         button.classList.add('skills_carouselButton--selected');
+        if (i - 1 >= 0) items[i - 1].classList.add('skills_item--before'); // for finite carousel
+        items[i].classList.add('skills_item--selected');
+        if (i + 1 < items.length) items[i + 1].classList.add('skills_item--after'); // for finite carousel
+        // items[i - 1 >= 0 ? i - 1 : items.length - 1].classList.add('skills_item--before'); // for infinite loop carousel
+        // items[i + 1 < items.length ? i + 1 : 0].classList.add('skills_item--after'); // for infinite loop carousel
+
+        /*
+        // test to ensure no undefined items returned 
+        console.log(items[i - 1 >= 0 ? i - 1 : items.length - 1]);
+        console.log(items[i]);
+        console.log(items[i + 1 < items.length ? i + 1 : 0]);
+        */
       });
     });
 
-    // Select the first item on page load
-    items[0].classList.add('skills_item--selected');
-    buttons[0].classList.add('skills_carouselButton--selected');
+    // Selecting the first item in each carousel on page load
+    const firstIndex = 0;
+
+    buttons[firstIndex].classList.add('skills_carouselButton--selected');
+    if (firstIndex - 1 >= 0) items[firstIndex - 1].classList.add('skills_item--before'); // for finite carousel
+    items[firstIndex].classList.add('skills_item--selected');
+    if (firstIndex + 1 < items.length) items[firstIndex + 1].classList.add('skills_item--after'); // for finite carousel
+    // items[firstIndex - 1 >= 0 ? firstIndex - 1 : items.length - 1].classList.add('skills_item--before'); // for infinite loop carousel
+    // items[firstIndex + 1 < items.length ? firstIndex + 1 : 0].classList.add('skills_item--after'); // for infinite loop carousel
   });
 
   /* --- CODE FOR INSERTING CURRENT COPYRIGHT YEAR --- */
