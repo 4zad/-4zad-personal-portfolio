@@ -987,12 +987,39 @@ table {
   animation: horizontalScrollInSelected var(--animate-in-duration) ease-out;
 }
 
-/* Before Tile Animations */
-@keyframes verticalScrollInBefore {
+/* Before to Invisible Animations */
+@keyframes verticalBeforeToInvisibleScroll {
   0% {
+    opacity: var(--background-opacity);
+    transform: translate(-50%, -50%) scale(var(--background-scale));
+    top: var(--before-position);
+  }
+  100% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0);
     top: var(--invisible-before-position);
+  }
+}
+
+@keyframes horizontalBeforeToInvisibleScroll {
+  0% {
+    opacity: var(--background-opacity);
+    transform: translate(-50%, -50%) scale(var(--background-scale));
+    left: var(--before-position);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    left: var(--invisible-before-position);
+  }
+}
+
+/* Selected to Before Animations */
+@keyframes verticalScrollInBefore {
+  0% {
+    opacity: var(--highlighted-opacity);
+    transform: translate(-50%, -50%) scale(var(--highlighted-scale));
+    top: var(--selected-position);
   }
   100% {
     opacity: var(--background-opacity);
@@ -1003,9 +1030,9 @@ table {
 
 @keyframes horizontalScrollInBefore {
   0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
-    left: var(--invisible-before-position);
+    opacity: var(--highlighted-opacity);
+    transform: translate(-50%, -50%) scale(var(--highlighted-scale));
+    left: var(--selected-position);
   }
   100% {
     opacity: var(--background-opacity);
@@ -1014,12 +1041,12 @@ table {
   }
 }
 
-/* Selected Tile Animations */
+/* After to Selected Animations */
 @keyframes verticalScrollInSelected {
   0% {
     opacity: var(--background-opacity);
     transform: translate(-50%, -50%) scale(var(--background-scale));
-    top: var(--before-position);
+    top: var(--after-position);
   }
   100% {
     opacity: var(--highlighted-opacity);
@@ -1032,7 +1059,7 @@ table {
   0% {
     opacity: var(--background-opacity);
     transform: translate(-50%, -50%) scale(var(--background-scale));
-    left: var(--before-position);
+    left: var(--after-position);
   }
   100% {
     opacity: var(--highlighted-opacity);
@@ -1045,7 +1072,7 @@ table {
   0% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(var(--background-scale));
-    left: var(--invisible-position);
+    left: var(--invisible-after-position);
   }
   100% {
     opacity: var(--highlighted-opacity);
@@ -1054,30 +1081,30 @@ table {
   }
 }
 
-/* After Tile Animations */
+/* Invisible to After Animations */
 @keyframes verticalScrollInAfter {
   0% {
-    opacity: var(--background-opacity);
-    transform: translate(-50%, -50%) scale(var(--background-scale));
-    top: var(--after-position);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    top: var(--invisible-after-position);
   }
   100% {
     opacity: var(--background-opacity);
-    transform: translate(-50%, -50%) scale(0);
-    top: var(--invisible-after-position);
+    transform: translate(-50%, -50%) scale(var(--background-scale));
+    top: var(--after-position);
   }
 }
 
 @keyframes horizontalScrollInAfter {
   0% {
     opacity: var(--background-opacity);
-    transform: translate(-50%, -50%) scale(var(--background-scale));
-    left: var(--after-position);
+    transform: translate(-50%, -50%) scale(0);
+    left: var(--invisible-after-position);
   }
   100% {
     opacity: var(--background-opacity);
-    transform: translate(-50%, -50%) scale(0);
-    left: var(--invisible-after-position);
+    transform: translate(-50%, -50%) scale(var(--background-scale));
+    left: var(--after-position);
   }
 }
 
