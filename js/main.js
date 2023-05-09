@@ -76,24 +76,70 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     buttons.forEach((button, i) => {
       button.addEventListener('click', () => {
+        const prevSelectedIndex = [...items].findIndex((item) => item.classList.contains('skills_item--selected'));
+        const currentSelectedIndex = i;
+        const forwardDirection = prevSelectedIndex < currentSelectedIndex ? true : false;
+
         // de-select all the items
+        items.forEach((item) => item.classList.remove('skills_item--invisible'));
         items.forEach((item) => item.classList.remove('skills_item--before'));
         items.forEach((item) => item.classList.remove('skills_item--selected'));
         items.forEach((item) => item.classList.remove('skills_item--after'));
         buttons.forEach((button) => button.classList.remove('skills_carouselButton--selected'));
+        // de-select all animation classes
+        items.forEach((item) => item.classList.remove('beforeToInvisibleScroll'));
+        items.forEach((item) => item.classList.remove('selectedToBeforeScroll'));
+        items.forEach((item) => item.classList.remove('afterToSelectedScroll'));
+        items.forEach((item) => item.classList.remove('invisibleToAfterScroll'));
+        items.forEach((item) => item.classList.remove('invisibleToBeforeScroll'));
+        items.forEach((item) => item.classList.remove('beforeToSelectedScroll'));
+        items.forEach((item) => item.classList.remove('selectedToAfterScroll'));
+        items.forEach((item) => item.classList.remove('afterToInvisibleScroll'));
 
         button.classList.add('skills_carouselButton--selected');
-        if (i - 1 >= 0) items[i - 1].classList.add('skills_item--before'); // for finite carousel
-        items[i].classList.add('skills_item--selected');
-        if (i + 1 < items.length) items[i + 1].classList.add('skills_item--after'); // for finite carousel
-        // items[i - 1 >= 0 ? i - 1 : items.length - 1].classList.add('skills_item--before'); // for infinite loop carousel
-        // items[i + 1 < items.length ? i + 1 : 0].classList.add('skills_item--after'); // for infinite loop carousel
+
+        if (forwardDirection && i - 2 >= 0) {
+          const prevPrev = i - 2;
+
+          items[prevPrev].classList.add('skills_item--invisible');
+          items[prevPrev].classList.add('beforeToInvisibleScroll');
+        }
+        if (i - 1 >= 0) {
+          const prev = i - 1;
+
+          items[prev].classList.add('skills_item--before'); // for finite carousel
+          items[prev].classList.add(forwardDirection ? 'selectedToBeforeScroll' : 'invisibleToBeforeScroll'); // for finite carousel
+          // items[i - 1 >= 0 ? i - 1 : items.length - 1 - (items.length % (i - 1))].classList.add('skills_item--before'); // for infinite loop carousel
+          // items[i - 2 >= 0 ? i - 2 : items.length - 1 - (items.length % (i - 2))].classList.add(forwardDirection ? 'selectedToBeforeScroll' : 'invisibleToBeforeScroll'); // for infinite loop carousel
+        }
+        if (i >= 0 && i < items.length) {
+          const current = currentSelectedIndex;
+
+          items[current].classList.add('skills_item--selected'); // for both finite and infinite carousels
+          items[current].classList.add(forwardDirection ? 'afterToSelectedScroll' : 'beforeToSelectedScroll'); // for both finite and infinite carousels
+        }
+        if (i + 1 < items.length) {
+          const next = i + 1;
+
+          items[next].classList.add('skills_item--after'); // for finite carousel
+          items[next].classList.add(forwardDirection ? 'invisibleToAfterScroll' : 'selectedToAfterScroll'); // for finite carousel
+          // items[i + 1 < items.length ? i + 1 : items.length % (i + 1)].classList.add('skills_item--after'); // for infinite loop carousel
+          // items[i + 2 < items.length ? i + 2 : items.length % (i + 2)].classList.add(forwardDirection ? 'invisibleToAfterScroll' : 'selectedToAfterScroll'); // for infinite loop carousel
+        }
+        if (!forwardDirection && i + 2 < items.length) {
+          const nextNext = i + 2;
+
+          items[nextNext].classList.add('skills_item--invisible');
+          items[nextNext].classList.add('afterToInvisibleScroll');
+        }
 
         /*
-        // test to ensure no undefined items returned 
-        console.log(items[i - 1 >= 0 ? i - 1 : items.length - 1]);
+        // test to ensure no undefined items returned for infinite loop carousel
+        console.log(items[i - 2 >= 0 ? i - 2 : items.length - 1 - (items.length % (i - 2))]);
+        console.log(items[i - 1 >= 0 ? i - 1 : items.length - 1 - (items.length % (i - 1))]);
         console.log(items[i]);
-        console.log(items[i + 1 < items.length ? i + 1 : 0]);
+        console.log(items[i + 1 < items.length ? i + 1 : items.length % (i + 1)]);
+        console.log(items[i + 2 < items.length ? i + 2 : items.length % (i + 2)]);
         */
       });
     });
