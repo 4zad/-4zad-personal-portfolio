@@ -926,16 +926,16 @@ table {
   --invisible-before-position: calc(var(--before-position) / 4);
   --invisible-after-position: calc(100% - (var(--after-position) / 4));
   --selected-position: 50%;
-  --animate-in-duration: 1s;
-  --animate-out-duration: 1s;
+  --animate-in-duration: 0.8s;
+  --animate-out-duration: var(--animate-in-duration);
 }
 .skills_box:nth-child(2) .skills_item--before,
 .skills_box:nth-child(4) .skills_item--before,
 .skills_box:nth-child(2) .skills_item--after,
 .skills_box:nth-child(4) .skills_item--after,
 .skills_item {
-  display: none;
-  position: absolute;
+  display: none; /* !important */
+  position: absolute; /* !important */
 }
 .skills_box:nth-child(3) .skills_item--before,
 .skills_box:nth-child(5) .skills_item--before,
@@ -975,34 +975,85 @@ table {
   left: var(--selected-position);
   transform: translate(-50%, -50%) scale(var(--highlighted-scale));
 }
-
-/* Before to Invisible Classes */
-.verticalBeforeToInvisibleScroll {
-  animation: verticalBeforeToInvisibleScroll var(--animate-in-duration) ease-out;
+.skills_item--invisible {
+  display: inline-block !important;
+  position: absolute; /* !important */
+  opacity: 0%;
 }
-.horizontalBeforeToInvisibleScroll {
-  animation: horizontalBeforeToInvisibleScroll var(--animate-in-duration) ease-out;
+.skills_box:nth-child(3) .skills_item--invisible,
+.skills_box:nth-child(6) .skills_item--invisible {
+  left: 50%;
+}
+.skills_box:nth-child(5) .skills_item--invisible {
+  top: 50%;
+}
+
+/* FORWARD DIRECTION ANIMATIONS */
+/* Before to Invisible Classes */
+.skills_box:nth-child(3) .beforeToInvisibleScroll,
+.skills_box:nth-child(6) .beforeToInvisibleScroll {
+  animation: verticalBeforeToInvisibleScroll var(--animate-in-duration) ease-out normal;
+}
+.skills_box:nth-child(5) .beforeToInvisibleScroll {
+  animation: horizontalBeforeToInvisibleScroll var(--animate-in-duration) ease-out normal;
 }
 /* Selected to Before Classes */
-.verticalSelectedToBeforeScroll {
-  animation: verticalSelectedToBeforeScroll var(--animate-in-duration) ease-out;
+.skills_box:nth-child(3) .selectedToBeforeScroll,
+.skills_box:nth-child(6) .selectedToBeforeScroll {
+  animation: verticalSelectedToBeforeScroll var(--animate-in-duration) ease-out normal;
 }
-.horizontalSelectedToBeforeScroll {
-  animation: horizontalSelectedToBeforeScroll var(--animate-in-duration) ease-out;
+.skills_box:nth-child(5) .selectedToBeforeScroll {
+  animation: horizontalSelectedToBeforeScroll var(--animate-in-duration) ease-out normal;
 }
 /* After to Selected Classes */
-.verticalAfterToSelectedScroll {
-  animation: verticalAfterToSelectedScroll var(--animate-in-duration) ease-out;
+.skills_box:nth-child(3) .afterToSelectedScroll,
+.skills_box:nth-child(6) .afterToSelectedScroll {
+  animation: verticalAfterToSelectedScroll var(--animate-in-duration) ease-out normal;
 }
-.horizontalAfterToSelectedScroll {
-  animation: horizontalAfterToSelectedScroll var(--animate-in-duration) ease-out;
+.skills_box:nth-child(5) .afterToSelectedScroll {
+  animation: horizontalAfterToSelectedScroll var(--animate-in-duration) ease-out normal;
 }
 /* Invisible to After Classes */
-.verticalInvisibleToAfterScroll {
-  animation: verticalInvisibleToAfterScroll var(--animate-in-duration) ease-out;
+.skills_box:nth-child(3) .invisibleToAfterScroll,
+.skills_box:nth-child(6) .invisibleToAfterScroll {
+  animation: verticalInvisibleToAfterScroll var(--animate-in-duration) ease-out normal;
 }
-.horizontalInvisibleToAfterScroll {
-  animation: horizontalInvisibleToAfterScroll var(--animate-in-duration) ease-out;
+.skills_box:nth-child(5) .invisibleToAfterScroll {
+  animation: horizontalInvisibleToAfterScroll var(--animate-in-duration) ease-out normal;
+}
+
+/* REVERSE DIRECTION ANIMATIONS */
+/* Invisible to Before Classes */
+.skills_box:nth-child(3) .invisibleToBeforeScroll,
+.skills_box:nth-child(6) .invisibleToBeforeScroll {
+  animation: verticalBeforeToInvisibleScroll var(--animate-in-duration) ease-out reverse;
+}
+.skills_box:nth-child(5) .invisibleToBeforeScroll {
+  animation: horizontalBeforeToInvisibleScroll var(--animate-in-duration) ease-out reverse;
+}
+/* Before to Selected Classes */
+.skills_box:nth-child(3) .beforeToSelectedScroll,
+.skills_box:nth-child(6) .beforeToSelectedScroll {
+  animation: verticalSelectedToBeforeScroll var(--animate-in-duration) ease-out reverse;
+}
+.skills_box:nth-child(5) .beforeToSelectedScroll {
+  animation: horizontalSelectedToBeforeScroll var(--animate-in-duration) ease-out reverse;
+}
+/* Selected to After Classes */
+.skills_box:nth-child(3) .selectedToAfterScroll,
+.skills_box:nth-child(6) .selectedToAfterScroll {
+  animation: verticalAfterToSelectedScroll var(--animate-in-duration) ease-out reverse;
+}
+.skills_box:nth-child(5) .selectedToAfterScroll {
+  animation: horizontalAfterToSelectedScroll var(--animate-in-duration) ease-out reverse;
+}
+/* After to Invisible Classes */
+.skills_box:nth-child(3) .afterToInvisibleScroll,
+.skills_box:nth-child(6) .afterToInvisibleScroll {
+  animation: verticalInvisibleToAfterScroll var(--animate-in-duration) ease-out reverse;
+}
+.skills_box:nth-child(5) .afterToInvisibleScroll {
+  animation: horizontalInvisibleToAfterScroll var(--animate-in-duration) ease-out reverse;
 }
 
 /* Before to Invisible Animations */
@@ -1086,19 +1137,6 @@ table {
   }
 }
 
-/* @keyframes cubicScrollInSelected {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(var(--background-scale));
-    left: var(--invisible-after-position);
-  }
-  100% {
-    opacity: var(--highlighted-opacity);
-    transform: translate(-50%, -50%) scale(var(--highlighted-scale));
-    left: var(--selected-position);
-  }
-} */
-
 /* Invisible to After Animations */
 @keyframes verticalInvisibleToAfterScroll {
   0% {
@@ -1125,6 +1163,19 @@ table {
     left: var(--after-position);
   }
 }
+
+/* @keyframes cubicScrollInSelected {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(var(--background-scale));
+    left: var(--invisible-after-position);
+  }
+  100% {
+    opacity: var(--highlighted-opacity);
+    transform: translate(-50%, -50%) scale(var(--highlighted-scale));
+    left: var(--selected-position);
+  }
+} */
 
 @-moz-keyframes fadeIn {
 }
