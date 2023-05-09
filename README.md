@@ -54,8 +54,8 @@ It involved the use of various plugins and APIs as well, including:
 
 #### Early Design/Mockup
 
-![Getting Started](markdown-img\portfolio-mockup.jpg)
-![Getting Started](markdown-img\portfolio-mockup2.jpg)
+![Getting Started](markdown-img/portfolio-mockup.jpg)
+![Getting Started](markdown-img/portfolio-mockup2.jpg)
 
 
 
