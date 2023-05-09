@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const prevSelectedIndex = [...items].findIndex((item) => item.classList.contains('skills_item--selected'));
         const currentSelectedIndex = i;
         const forwardDirection = prevSelectedIndex < currentSelectedIndex ? true : false;
-        console.log(prevSelectedIndex, currentSelectedIndex);
 
         // de-select all the items
         items.forEach((item) => item.classList.remove('skills_item--invisible'));
