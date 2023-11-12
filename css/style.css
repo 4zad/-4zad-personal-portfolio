@@ -1321,6 +1321,9 @@ table {
   background-size: cover;
   position: relative;
 }
+.row:nth-last-child(6) > .projects_image {
+  background-image: url(../img/meta-connect-2022-mockup.jpg);
+}
 .row:nth-last-child(5) > .projects_image {
   background-image: url(../img/story-of-icarus-mockup.jpg);
 }
