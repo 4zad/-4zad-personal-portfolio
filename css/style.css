@@ -28,7 +28,7 @@
   --inter-grid-margin-x: 0em;
   --inter-grid-margin-y: 7em;
   --intra-grid-margin-x: 4em;
-  --intra-grid-margin-y: 7em;
+  --intra-grid-margin-y: 17em;
 
   /* PADDING */
   --section-padding-x: 0%;
@@ -1321,11 +1321,20 @@ table {
   background-size: cover;
   position: relative;
 }
+.row:nth-last-child(9) > .projects_image {
+  background-image: url(../img/adidas-uefa-champions-league-ai-chat-mockup.jpg);
+}
+.row:nth-last-child(8) > .projects_image {
+  background-image: url(../img/ibm-gt4sd-ui-library-mockup.jpg);
+}
+.row:nth-last-child(7) > .projects_image {
+  background-image: url(../img/story-of-icarus-mockup.jpg);
+}
 .row:nth-last-child(6) > .projects_image {
   background-image: url(../img/meta-connect-2022-mockup.jpg);
 }
 .row:nth-last-child(5) > .projects_image {
-  background-image: url(../img/story-of-icarus-mockup.jpg);
+  background-image: url(../img/mandalorian-clone-mockup.jpg);
 }
 .row:nth-last-child(4) > .projects_image {
   background-image: url(../img/delmoure-college-mockup.jpg);
@@ -1360,12 +1369,12 @@ table {
 .grid.work_projects > .row:nth-child(odd) > .projects_info {
   text-align: right;
   border-right: var(--accent-border-width) solid var(--primary-accent);
-  margin: 0% 0% -7% -7%;
+  margin: 0% 0% -10% -7%;
 }
 .grid.work_projects > .row:nth-child(even) > .projects_info {
   text-align: left;
   border-left: var(--accent-border-width) solid var(--primary-accent);
-  margin: 0% -7% -7% 0%;
+  margin: 0% -7% -10% 0%;
 }
 
 .projects_links {
